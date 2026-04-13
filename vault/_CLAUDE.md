@@ -2,11 +2,14 @@
 
 Always-loaded context for Claude when working in this vault. Keep short — every token here is paid on every turn.
 
+**Also always-loaded:** [CRITICAL_FACTS.md](CRITICAL_FACTS.md) — ground-truth about user, active projects, hard preferences. Read once at session start; don't re-read unless facts change.
+
 ## How this vault is organized
 
 ```
 vault/
 ├── _CLAUDE.md          YOU ARE HERE — operating manual
+├── CRITICAL_FACTS.md   always-loaded ground-truth (user, active projects, hard preferences)
 ├── README.md           human-facing overview (don't re-read unless asked)
 ├── SETUP.md            Obsidian plugin setup (skip unless troubleshooting)
 ├── dashboard.md        live Dataview queries (read on request only)
@@ -16,7 +19,8 @@ vault/
 │   ├── standards/      reference notes (IEEE 830, etc) — load on demand
 │   └── patterns/       reusable chunks — load on demand
 ├── knowledge/          topic research (second brain) — START with README.md then index.md per topic
-│   ├── README.md           topic catalog (ALWAYS read first before loading a topic)
+│   ├── README.md           topic hub: live Dataview catalog + needs-attention + recent (ALWAYS read first)
+│   ├── inbox/              working-memory tier — fleeting captures, ~30d lifespan
 │   ├── <topic>/
 │   │   ├── outline.md      from research-outline
 │   │   ├── index.md        TL;DR + cross-cutting synthesis (READ FIRST per topic)
@@ -65,6 +69,7 @@ vault/
 | `research-outline` | Stage 1: outline items + angles on a topic |
 | `research-deep` | Stage 2: expand outline into per-item atomic notes (parallel web search) |
 | `update-knowledge` | Ingest new source (URL/file/text) into existing knowledge topic — append, merge, or refresh modes; preserves provenance |
+| `ask-knowledge` | Query the knowledge base — synthesize answer with citations + aggregate confidence; offers to research when gap found |
 | `extract-sow` | Parse SOW/requirement doc → normalized `extracted.md` |
 | `draft-doc` | Fill a template (SRS/BRD/SDS/…) from extracted requirements |
 | `make-diagram` | Generate Mermaid/PlantUML/drawio diagram |

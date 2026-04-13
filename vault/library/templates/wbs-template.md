@@ -1,8 +1,13 @@
 ---
 type: wbs
+kind: template
 standard: PMI PMBOK (pragmatic)
+domain: project-management
 language: th
 tags:
+  - library
+  - template
+  - project-management
   - wbs
   - draft
 aliases:

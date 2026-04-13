@@ -1,8 +1,13 @@
 ---
 type: sds
+kind: template
 standard: IEEE 1016 (pragmatic) + arc42 influence
+domain: design
 language: th
 tags:
+  - library
+  - template
+  - design
   - sds
   - draft
 aliases:

@@ -1,6 +1,13 @@
 ---
 pattern: auth-otp-flow
+kind: pattern
+domain: security
 applies-to: registration, login, sensitive-action-reauthentication
+tags:
+  - library
+  - pattern
+  - security
+  - auth
 ---
 
 # Pattern — OTP authentication (phone + email)

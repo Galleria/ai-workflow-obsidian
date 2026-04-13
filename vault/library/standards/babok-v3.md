@@ -1,8 +1,12 @@
 ---
+kind: standard
 standard: BABOK v3 (IIBA Business Analysis Body of Knowledge, 3rd ed.)
+domain: requirements
 applies-to: brd
 tags:
+  - library
   - standard
+  - requirements
   - brd
   - business-analysis
 aliases:

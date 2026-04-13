@@ -1,8 +1,13 @@
 ---
 type: test-plan
+kind: template
 standard: IEEE 829 (pragmatic) + ISTQB
+domain: testing
 language: th
 tags:
+  - library
+  - template
+  - testing
   - test-plan
   - draft
 aliases:

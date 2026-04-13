@@ -1,10 +1,13 @@
 ---
+kind: standard
 standard: PMBOK Guide 7th ed. (PMI, 2021) — with 6th-ed. process artifacts still referenced
+domain: project-management
 applies-to: wbs, project-plan
 tags:
+  - library
   - standard
-  - wbs
   - project-management
+  - wbs
 aliases:
   - PMBOK
   - PMI Project Management Body of Knowledge

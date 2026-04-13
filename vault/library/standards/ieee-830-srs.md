@@ -1,6 +1,16 @@
 ---
+kind: standard
 standard: IEEE 830-1998
+domain: requirements
 applies-to: srs
+tags:
+  - library
+  - standard
+  - requirements
+  - srs
+aliases:
+  - IEEE 830
+  - SRS standard
 ---
 
 # IEEE 830 — SRS reference note

@@ -1,6 +1,13 @@
 ---
 pattern: webhook-integration
+kind: pattern
+domain: integration
 applies-to: POS, payment gateway, e-commerce, any inbound event integration
+tags:
+  - library
+  - pattern
+  - integration
+  - webhook
 ---
 
 # Pattern — Inbound webhook integration (idempotent, retry-safe)

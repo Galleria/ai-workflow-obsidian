@@ -1,8 +1,12 @@
 ---
+kind: standard
 standard: BPMN 2.0 (ISO/IEC 19510:2013)
+domain: process
 applies-to: workflow, process-diagram
 tags:
+  - library
   - standard
+  - process
   - diagram
   - workflow
 aliases:

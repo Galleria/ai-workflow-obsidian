@@ -1,8 +1,13 @@
 ---
 type: brd
+kind: template
 standard: BABOK v3 (pragmatic)
+domain: requirements
 language: th
 tags:
+  - library
+  - template
+  - requirements
   - brd
   - draft
 aliases:

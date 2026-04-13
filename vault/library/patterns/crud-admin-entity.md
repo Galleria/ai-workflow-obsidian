@@ -1,6 +1,13 @@
 ---
 pattern: crud-admin-entity
+kind: pattern
+domain: ui
 applies-to: admin web console screens managing configuration entities
+tags:
+  - library
+  - pattern
+  - ui
+  - admin
 ---
 
 # Pattern — CRUD admin entity (list / detail / form / audit)

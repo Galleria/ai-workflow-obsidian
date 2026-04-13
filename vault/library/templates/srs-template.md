@@ -1,8 +1,13 @@
 ---
 type: srs
+kind: template
 standard: IEEE 830-1998
+domain: requirements
 language: th
 tags:
+  - library
+  - template
+  - requirements
   - srs
   - draft
 aliases:

@@ -96,12 +96,29 @@ SORT file.folder, type
 
 ---
 
-## Standards + patterns library
+## Library — reference material grouped by domain
 
 ```dataview
-LIST
-FROM "library/standards" OR "library/patterns"
-SORT file.name ASC
+TABLE WITHOUT ID
+  file.link AS "File",
+  kind AS "Kind",
+  domain AS "Domain",
+  applies-to AS "Applies to"
+FROM "library"
+WHERE kind
+SORT domain ASC, kind ASC, file.name ASC
+```
+
+### Library items by domain
+
+```dataview
+TABLE WITHOUT ID
+  rows.file.link AS "Files",
+  length(rows) AS "Count"
+FROM "library"
+WHERE kind
+GROUP BY domain
+SORT domain ASC
 ```
 
 ---

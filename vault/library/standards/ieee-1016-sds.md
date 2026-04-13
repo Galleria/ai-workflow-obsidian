@@ -1,8 +1,12 @@
 ---
+kind: standard
 standard: IEEE Std 1016-2009 (Software Design Descriptions)
+domain: design
 applies-to: sds
 tags:
+  - library
   - standard
+  - design
   - sds
   - architecture
 aliases:
