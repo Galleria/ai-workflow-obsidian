@@ -14,6 +14,22 @@
 # Deliverable exports — regenerable from source markdown; don't version
 **/_export/
 
+# Private project data — raw SOW originals may contain client-confidential content
+# (extracted.md stays tracked; only the raw source files are excluded by default)
+**/projects/*/00-sow/*.pdf
+**/projects/*/00-sow/*.docx
+**/projects/*/00-sow/*.doc
+**/projects/*/00-sow/raw/
+
+# markitdown converted artifacts (regenerable from source)
+**/projects/*/00-sow/_converted/
+**/knowledge/*/_sources/
+
+# Visibility override: per-project opt-out — create this empty file in a project to
+# exclude the entire project directory from git. Useful for strictly-private clients.
+# Example:   touch vault/projects/acme/.private
+# Then add:  vault/projects/acme/ to a machine-specific .git/info/exclude, OR git rm --cached -r the project.
+
 # OS / editor
 .DS_Store
 Thumbs.db
