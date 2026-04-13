@@ -17,6 +17,7 @@ Read-only content that `skills/` draw from across all projects. If something bel
 | [standards/](standards/) | Reference notes summarizing industry specs (IEEE, BABOK, PMBOK, BPMN, etc.) for `draft-doc` to load in strict mode | you need a new doc type in strict mode and no existing standard note covers it |
 | [templates/](templates/) | Fillable skeletons per deliverable type (SRS, BRD, SDS, WBS, test-plan, MoM, …) | you start producing a new deliverable type regularly |
 | [patterns/](patterns/) | Reusable design/architecture patterns (auth flows, integration shapes, UI conventions) | you see the same design chunk get rewritten across projects ≥ 2 times |
+| [assets/](assets/) | Shared binary resources (client brand DOCX, logos, cross-project images, font samples) — the only non-markdown subfolder | onboarding a new client (brand DOCX + logo) or adding a reusable visual |
 
 ---
 
@@ -46,6 +47,14 @@ Read-only content that `skills/` draw from across all projects. If something bel
 | [auth-otp-flow](patterns/auth-otp-flow.md) | security | registration, login, sensitive-action re-auth |
 | [webhook-integration](patterns/webhook-integration.md) | integration | inbound event APIs, payment callbacks, POS webhooks |
 | [crud-admin-entity](patterns/crud-admin-entity.md) | ui | admin console entity management (rules, campaigns, users) |
+
+### assets/ (binaries + guide)
+| File | Purpose |
+|---|---|
+| [README](assets/README.md) | folder intent + naming conventions |
+| [HOW-TO-BRAND-DOCX](assets/HOW-TO-BRAND-DOCX.md) | step-by-step guide to build a client brand reference.docx |
+| `<client>-brand-reference.docx` | pandoc style template (per client, added as needed) |
+| `<client>-logo.png` | client logo for headers/diagrams (per client) |
 
 ---
 
@@ -91,4 +100,4 @@ Current state: all three subfolders are flat (≤ 5 items each). No subdivision 
 - **Project-specific stuff** → `projects/<name>/document|diagram|_input|…`
 - **Live / evergreen research notes** → `knowledge/<topic>/items/`
 - **Skill instructions** → `skills/<name>/SKILL.md`
-- **Brand / image assets** → `_assets/`
+- **Project-specific assets** (screenshots only used by one project) → `projects/<name>/assets/`

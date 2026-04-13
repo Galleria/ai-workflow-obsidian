@@ -136,11 +136,11 @@ The reference DOCX controls fonts, colors, heading styles, margins in the export
 2. Open `reference.docx` in Word → edit styles (Normal, Heading 1-3, Title, ...)
    - Set Thai font: TH Sarabun New 14pt for Normal; Heading 1 18pt bold, etc.
    - Apply client brand colors via Styles
-3. Save as `vault/_assets/<client>-brand-reference.docx`
+3. Save as `vault/library/assets/<client>-brand-reference.docx`
 4. Reference in `project-config.md`:
    ```
    ## Export
-   - Reference DOCX: `../_assets/<client>-brand-reference.docx`
+   - Reference DOCX: `../../library/assets/<client>-brand-reference.docx`
    ```
 
 ---

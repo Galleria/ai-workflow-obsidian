@@ -8,14 +8,14 @@ Pandoc uses a "reference.docx" as a **style template** when converting Markdown 
 
 ## Step 1 — Generate the starting template
 
-Requires `pandoc` installed ([install guide](../skills/export-doc/install.md)).
+Requires `pandoc` installed ([install guide](../../skills/export-doc/install.md)).
 
 ```bash
-cd vault/_assets/
+cd vault/library/assets/
 pandoc -o <client>-brand-reference.docx --print-default-data-file reference.docx
 ```
 
-This drops pandoc's default template at `_assets/<client>-brand-reference.docx`.
+This drops pandoc's default template at `library/assets/<client>-brand-reference.docx`.
 
 ---
 
@@ -47,7 +47,7 @@ This drops pandoc's default template at `_assets/<client>-brand-reference.docx`.
 ## Step 3 — (Optional) Add cover page + header/footer
 
 - **Insert → Cover Page** → pick a layout → customize with client logo + project name placeholder.
-- **Insert → Header** → add client logo (`_assets/<client>-logo.png`) + horizontal line.
+- **Insert → Header** → add client logo (`library/assets/<client>-logo.png`) + horizontal line.
 - **Insert → Footer** → page number (right-aligned) + "Confidential" or doc version (left-aligned).
 
 **Important:** delete all actual content text — leave only the *styles* + header/footer. Pandoc generates the content; this file only contributes styling.
@@ -68,7 +68,7 @@ Delete the test paragraphs before saving.
 2. In the project that should use it, edit `project-config.md`:
    ```markdown
    ## Export
-   - Reference DOCX: `../_assets/<client>-brand-reference.docx`
+   - Reference DOCX: `../../library/assets/<client>-brand-reference.docx`
    ```
 
 ---
@@ -78,7 +78,7 @@ Delete the test paragraphs before saving.
 ```bash
 cd vault/projects/<client-project>/
 pandoc document/srs.md -o _export/srs-test.docx \
-  --reference-doc=../../_assets/<client>-brand-reference.docx \
+  --reference-doc=../../library/assets/<client>-brand-reference.docx \
   --toc
 ```
 

@@ -68,7 +68,7 @@ If missing, stop and tell the user to run the `install.md` steps.
 
 ```markdown
 ## Export
-- **Reference DOCX:** `../_assets/acme-brand-reference.docx`  (optional; path relative to vault/)
+- **Reference DOCX:** `../../library/assets/acme-brand-reference.docx`  (optional; path relative to the project's `project-config.md`)
 - **Thai font:** `TH Sarabun New` (for PDF) — or `Noto Sans Thai`, `Sarabun`
 - **PDF engine:** `xelatex`
 - **Pandoc extra args:** `--number-sections`
@@ -103,7 +103,7 @@ _export/
 - **Preserve heading levels** — don't auto-promote or collapse.
 - **Fail loudly** if a diagram fails to render — don't silently ship a broken doc.
 - **Thai PDF:** XeLaTeX is mandatory; pdflatex will produce boxes for Thai glyphs.
-- **Reference DOCX:** create once with the client's style (headers, colors, font) using `pandoc -o reference.docx --print-default-data-file reference.docx` as starting point, then customize in Word and save to `vault/_assets/`.
+- **Reference DOCX:** create once with the client's style (headers, colors, font) using `pandoc -o reference.docx --print-default-data-file reference.docx` as starting point, then customize in Word and save to `vault/library/assets/`.
 
 ## Report format
 

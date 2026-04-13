@@ -1,4 +1,4 @@
-# _assets/
+# library/assets/
 
 Shared binary / non-markdown resources referenced by the vault.
 
@@ -19,12 +19,12 @@ Shared binary / non-markdown resources referenced by the vault.
 
 ## How clients reference these from project-config
 
+From `vault/projects/<name>/project-config.md` (two directories up from project folder):
+
 ```markdown
 ## Export
-- Reference DOCX: `../_assets/acme-brand-reference.docx`
+- Reference DOCX: `../../library/assets/acme-brand-reference.docx`
 ```
-
-Path is relative to the vault root, starting with `../` from inside `projects/<name>/`.
 
 ## Building a brand reference DOCX
 

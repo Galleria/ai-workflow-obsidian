@@ -98,7 +98,7 @@ _export/                        DOCX / PDF final deliverables (gitignored — re
 - Date format `YYYY-MM-DD` in file names for chronological sort
 
 ## Export (for `export-doc` skill)
-- **Reference DOCX:** [unset — uses pandoc default]  (path relative to vault/, e.g. `_assets/<client>-brand-reference.docx`)
+- **Reference DOCX:** [unset — uses pandoc default]  (path relative to this config file, e.g. `../../library/assets/<client>-brand-reference.docx`)
 - **Thai font:** `TH Sarabun New`
 - **PDF engine:** `xelatex`
 - **Pandoc extra args:** (none)
