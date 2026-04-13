@@ -48,10 +48,13 @@ vault/
 ## Core conventions (condensed)
 
 - **Wikilinks** `[[target]]` for vault-internal refs; standard markdown links for URLs
+- **Typed relations** (optional inline): `[[A]] #causes [[B]]`, `[[A]] #supports [[B]]`, `[[A]] #contradicts [[B]]`, `[[A]] #part-of [[B]]`, `[[A]] #implements [[B]]`, `[[A]] #supersedes [[B]]`. Place the relation tag between two wikilinks on the same line so Dataview can parse
 - **Frontmatter required** on every non-trivial note: `type`, `tags`, `visibility`, doc-specific keys
 - **Visibility**: `private` (client-confidential) | `internal` (team) | `public` (shareable). Default = inherit from project or `internal`
+- **Confidence** (research/knowledge notes only): `confidence: 0.0-1.0` in frontmatter — overall trust in the note's claims. <0.6 = speculative, 0.6-0.8 = well-sourced, >0.8 = multi-source verified. Update on every `update-knowledge` merge (raise if corroborating source, lower if contradiction)
+- **Forgetting curve fields** (knowledge notes): `last-accessed: YYYY-MM-DD` (bumped on read/edit) + `review-after: YYYY-MM-DD` (revisit-by date, default +90 days). Stale notes don't delete — they demote in Dataview queries
 - **Callouts for semantics**: `> [!summary]` TL;DR, `> [!opinion]` AI judgment (not fact), `> [!warning]` blockers, `> [!question]` for client, `> [!quote]` for raw source excerpts
-- **Tags hierarchy**: `research/outline`, `research/deep`, `research/index`; `pkm/method`, `pkm/anti-pattern`; `risk/high`, `risk/medium`, `risk/low`
+- **Tags hierarchy**: `research/outline`, `research/deep`, `research/index`; `pkm/method`, `pkm/anti-pattern`; `risk/high`, `risk/medium`, `risk/low`; `confidence/low` / `confidence/high` (derived from score for fast filtering)
 - Full syntax in `[[obsidian-markdown]]` — load only when writing vault content
 
 ## Skill catalog (one-line each)

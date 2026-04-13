@@ -5,11 +5,15 @@ item: Evergreen notes
 category: modern-synthesis
 parent: "[[outline]]"
 researched: 2026-04-13
+last-accessed: 2026-04-13
+review-after: 2026-07-12
+confidence: 0.9
 tags:
   - research
   - research/deep
   - living-knowledge-base
   - pkm/method
+  - confidence/high
 ---
 
 # Evergreen notes
@@ -42,8 +46,9 @@ tags:
 - ⚠️ **Vague boundary** — "เมื่อไหร่ note นี้ evergreen พอ?" ไม่มีเกณฑ์ตายตัว
 - ⚠️ **Easy to bikeshed** — หลายคนติดอยู่กับ refactor title/structure แทนที่จะคิด
 
-## Relation to [[items/zettelkasten]]
-Evergreen notes ≈ Zettelkasten for the hypertext era — ตัด ID-number ออก (link ทำหน้าที่แทน), เพิ่ม principle "write complete phrases as titles"
+## Typed relations
+- [[items/evergreen-notes]] #refines [[items/zettelkasten]] — hypertext era update: ตัด ID-number, เพิ่ม principle "complete-phrase titles"
+- [[items/evergreen-notes]] #contradicts [[items/second-brain-para]] — disagree on organization: concept-first (evergreen) vs project-first (PARA)
 
 ## Sources
 [^1]: [Evergreen notes — Andy Matuschak](https://notes.andymatuschak.org/Evergreen_notes) — accessed 2026-04-13

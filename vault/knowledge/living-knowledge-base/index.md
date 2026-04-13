@@ -2,14 +2,18 @@
 type: research-index
 topic: Living knowledge base
 parent: "[[outline]]"
-item-count: 5
+item-count: 6
 generated: 2026-04-13
 last-updated: 2026-04-13
+last-accessed: 2026-04-13
+review-after: 2026-07-12
+confidence: 0.8
 visibility: public
 tags:
   - research
   - research/index
   - living-knowledge-base
+  - confidence/high
 ---
 
 # Living knowledge base — research index
@@ -17,22 +21,24 @@ tags:
 > [!info] สรุป
 > "Living knowledge base" = personal knowledge system ที่ **compound ตามเวลา** (ยิ่งใส่ ยิ่งมีค่า เพราะ link/insight ใหม่โผล่เอง) ไม่ใช่แค่ที่เก็บไฟล์. มี 3 คลื่นหลักของแนวคิด + คลื่นที่ 4 กำลังมา (AI-augmented)
 
-## TL;DR ใน 5 บรรทัด
+## TL;DR ใน 6 บรรทัด
 1. **Zettelkasten (1960s, Luhmann)** — ต้นตอ: atomic notes + links + unique IDs → network งอกเอง
 2. **Evergreen notes (2019+, Matuschak)** — refinement สำหรับ hypertext: concept-oriented, densely linked, own words
 3. **PARA / BASB (2017+, Forte)** — workflow-centric: Projects/Areas/Resources/Archive + CODE (capture-organize-distill-express)
 4. **AI-augmented vaults (2025+)** — Claude/LLM เป็น primary writer; ingest rewrite หลายหน้า; scheduled maintenance agents
 5. **Anti-patterns กินคนเยอะกว่า methodology** — collector's fallacy, note graveyard, tool hopping, over-organization
+6. **LLM Wiki v2 (2026, Karpathy + community)** — spec 7 features ยก wiki เรียบๆ ให้มี confidence, memory tiers, typed graph, hybrid search, auto-hooks, forgetting, contradiction resolution. POC เรา adopt 4/7 + partial 1 + defer 2
 
 ## Items
 
-| # | Item | Category | Summary | Notes |
-|---|---|---|---|---|
-| 1 | [[items/zettelkasten\|Zettelkasten]] | foundational-method | Luhmann's atomic-linked system — รากฐานของทุกอย่าง | — |
-| 2 | [[items/evergreen-notes\|Evergreen notes]] | modern-synthesis | Matuschak: write to compound, concept-oriented | — |
-| 3 | [[items/second-brain-para\|PARA / BASB]] | popular-framework | Forte: action-first, 4 folders + CODE workflow | ขัดกับ evergreen ในจุด organization |
-| 4 | [[items/obsidian-claude-patterns\|Obsidian + Claude patterns]] | modern-tooling | vault ที่ Claude เป็น primary reader/writer | #new |
-| 5 | [[items/anti-patterns\|Anti-patterns]] | what-not-to-do | collector's fallacy, graveyard, tool hopping | — |
+| # | Item | Category | Summary | Confidence | Notes |
+|---|---|---|---|---|---|
+| 1 | [[items/zettelkasten\|Zettelkasten]] | foundational-method | Luhmann's atomic-linked system — รากฐานของทุกอย่าง | 0.9 | — |
+| 2 | [[items/evergreen-notes\|Evergreen notes]] | modern-synthesis | Matuschak: write to compound, concept-oriented | 0.9 | — |
+| 3 | [[items/second-brain-para\|PARA / BASB]] | popular-framework | Forte: action-first, 4 folders + CODE workflow | 0.8 | ขัดกับ evergreen ในจุด organization |
+| 4 | [[items/obsidian-claude-patterns\|Obsidian + Claude patterns]] | modern-tooling | vault ที่ Claude เป็น primary reader/writer | 0.7 | updated 2026-04-13 with POC notes |
+| 5 | [[items/anti-patterns\|Anti-patterns]] | what-not-to-do | collector's fallacy, graveyard, tool hopping | 0.8 | — |
+| 6 | [[items/llm-wiki-v2\|LLM Wiki v2]] | modern-tooling | Karpathy's LLM Wiki + 7 features (confidence, tiers, graph, search, hooks, forgetting, contradictions) | 0.55 | #new 2026-04-13 via update-knowledge; single-source, needs corroboration |
 
 ## Cross-cutting findings
 
@@ -74,6 +80,7 @@ POC นี้เป็น **doc-workflow partner** เป็นหลัก + se
 
 ## Changelog
 
+- **2026-04-13** (append, via update-knowledge) — new item [[items/llm-wiki-v2]] added from community post capture ([[_raw/llm-wiki-v2-2026-04-13]]). Introduces 7-feature spec (Karpathy extension). Cross-cutting findings section below extended to reflect; retrofitted 5 original items with `confidence` scores + `last-accessed` + `review-after` fields. Added typed relations convention (inline `#causes`/`#refines`/`#contradicts`/etc.) — retrofit applied to evergreen-notes + obsidian-claude-patterns
 - **2026-04-13** (append, via update-knowledge) — เพิ่ม POC implementation notes ใน [[items/obsidian-claude-patterns]]: confirmed winners / deferred / rejected patterns + lessons learned. Relevance section ปรับเป็น concrete status. AI consolidated take ปรับข้อ 3 ให้สะท้อนว่า guardrails ข้อ 2-3 (weekly diff review, critical facts) ยัง defer
 - **2026-04-13** (initial) — 5 items, outline + index + consolidated opinion. Source: research-outline + research-deep demo
 

@@ -106,6 +106,71 @@ SORT file.name ASC
 
 ---
 
+## Knowledge base (second brain)
+
+### Topics at a glance
+
+```dataview
+TABLE WITHOUT ID
+  file.link AS "Topic",
+  item-count AS "Items",
+  confidence AS "Conf",
+  last-updated AS "Updated",
+  review-after AS "Review by"
+FROM "knowledge"
+WHERE type = "research-index"
+SORT last-updated DESC
+```
+
+### Low-confidence items (<0.7) — worth corroborating
+
+```dataview
+TABLE WITHOUT ID
+  file.link AS "Item",
+  topic AS "Topic",
+  confidence AS "Conf",
+  last-accessed AS "Last seen"
+FROM "knowledge"
+WHERE type = "research-item" AND confidence < 0.7
+SORT confidence ASC
+```
+
+### Stale items (review-after < today) — revisit queue
+
+```dataview
+TABLE WITHOUT ID
+  file.link AS "Item",
+  topic AS "Topic",
+  confidence AS "Conf",
+  review-after AS "Was due"
+FROM "knowledge"
+WHERE review-after AND review-after < date(today)
+SORT review-after ASC
+```
+
+### Items with contradictions
+
+```dataview
+LIST
+FROM "knowledge"
+WHERE contains(tags, "contradiction") OR contains(file.content, "#contradiction")
+```
+
+### Typed relations (inline graph edges)
+
+> Scans item notes for lines matching `[[...]] #<type> [[...]]` — surfaces the typed-graph structure without a dedicated graph engine.
+
+```dataview
+LIST
+FROM "knowledge"
+WHERE type = "research-item"
+FLATTEN file.lists AS L
+WHERE regexmatch("\[\[.+\]\] #(causes|supports|contradicts|part-of|implements|supersedes|builds-on|refines|automates|mitigates) \[\[.+\]\]", L.text)
+GROUP BY file.link
+```
+
+---
+
 ## Recently modified (anywhere in vault)
 
 ```dataview

@@ -5,11 +5,15 @@ item: PARA / Building a Second Brain (BASB)
 category: popular-framework
 parent: "[[outline]]"
 researched: 2026-04-13
+last-accessed: 2026-04-13
+review-after: 2026-07-12
+confidence: 0.8
 tags:
   - research
   - research/deep
   - living-knowledge-base
   - pkm/method
+  - confidence/high
 ---
 
 # PARA / Building a Second Brain

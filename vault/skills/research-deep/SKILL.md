@@ -53,6 +53,9 @@ item: {item_name}
 category: {item_category}
 parent: "[[outline]]"
 researched: {YYYY-MM-DD}
+last-accessed: {YYYY-MM-DD}
+review-after: {YYYY-MM-DD + 90 days}
+confidence: 0.7   # 0.0-1.0; start at 0.7 (well-sourced single pass), raise via update-knowledge
 tags:
   - research
   - research/deep
@@ -80,9 +83,11 @@ tags:
 ## <other angles from outline>
 ...
 
-## Related
-- [[items/<sibling-item-slug>]] — one-line relation
+## Typed relations (preferred)
+- [[items/<self-slug>]] #builds-on [[items/<other-slug>]] — one-line rationale
+- [[items/<self-slug>]] #contradicts [[items/<other-slug>]] — one-line disagreement
 - [[outline]]
+(Use relation types from _CLAUDE.md: #causes, #supports, #contradicts, #part-of, #implements, #supersedes, #builds-on, #refines, #automates, #mitigates)
 
 ## Sources
 [^1]: [<title>](<url>) — accessed {YYYY-MM-DD}

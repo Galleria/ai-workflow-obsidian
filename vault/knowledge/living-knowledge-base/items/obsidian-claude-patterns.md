@@ -5,11 +5,15 @@ item: Obsidian + Claude patterns (AI-as-writer vaults)
 category: modern-tooling
 parent: "[[outline]]"
 researched: 2026-04-13
+last-accessed: 2026-04-13
+review-after: 2026-06-12
+confidence: 0.7
 tags:
   - research
   - research/deep
   - living-knowledge-base
   - tooling
+  - confidence/medium
 ---
 
 # Obsidian + Claude patterns
@@ -43,10 +47,11 @@ Vault หยุด static. Claude เห็น vault เป็น workspace:
 - ⚠️ **Cost** — scheduled agents = API usage ต่อเนื่อง; ไม่ฟรี
 - ⚠️ **Less tangible ownership** — user อาจรู้สึกว่า vault "ไม่ใช่ของตัวเอง" ถ้า AI เขียนเยอะเกิน
 
-## Relation to foundations
-- แนวคิด atomic + linked notes จาก [[items/zettelkasten]] ยังใช้
-- Compound-over-time จาก [[items/evergreen-notes]] ยังจริง (และเร่งได้)
-- Workflow ของ [[items/second-brain-para]] ถูก automate (capture → organize → distill ทำโดย agent)
+## Typed relations
+- [[items/obsidian-claude-patterns]] #builds-on [[items/zettelkasten]] — ใช้หลัก atomic + linked notes เป็นรากฐาน
+- [[items/obsidian-claude-patterns]] #builds-on [[items/evergreen-notes]] — compound-over-time ยังจริง, agent ช่วยเร่ง
+- [[items/obsidian-claude-patterns]] #automates [[items/second-brain-para]] — CODE workflow (capture→organize→distill) ทำโดย agent
+- [[items/obsidian-claude-patterns]] #mitigates [[items/anti-patterns]] — scheduled agents ลด collector's fallacy ได้ (ถ้ามี guardrails)
 
 > [!info] Update 2026-04-13 — POC implementation notes (real-world experience)
 

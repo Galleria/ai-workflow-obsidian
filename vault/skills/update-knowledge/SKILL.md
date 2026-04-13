@@ -68,11 +68,54 @@ Follow [[obsidian-markdown]]:
 
 - **Never silently overwrite** — preserve prior claims under `superseded` callouts so the note keeps provenance. Deletion only if user explicitly says "remove"
 - **One source → one atomic update** — don't fold 5 sources at once; batch separately so git diff stays reviewable
-- **Contradictions are first-class** — surface them, don't resolve unilaterally. Tag `#contradiction` and report to user
 - **Dated updates** — every modified section gets a YYYY-MM-DD stamp so readers can trace evolution (bi-temporal tracking lite)
+- **Touch `last-accessed: <today>`** on every item you read or modify (supports forgetting-curve decay)
 - **`_raw/` is immutable** — once a source is saved to `_raw/`, never rewrite it; if you need a cleaned version, save alongside as `<slug>-cleaned.md`
 - **Respect visibility** — if topic is `public`, check incoming source doesn't leak private content; if incoming is private, flag and ask
 - **Don't trigger re-research** — if a source introduces a whole new item, don't expand it inline; report to user so they can run `research-deep` with full discipline
+
+## Confidence updates
+
+Every modified item gets a `confidence` recalculation (frontmatter field, 0.0-1.0):
+
+| Situation | Action |
+|---|---|
+| Source **corroborates** existing claim with independent evidence | +0.05 to +0.1 (cap at 0.95) |
+| Source **adds new angle** not previously covered | no change (new content is default 0.7) |
+| Source **contradicts** existing claim | -0.1 to -0.2 pending resolution; tag `#contradiction` |
+| Source is **primary/authoritative** (official docs, original author) | may push above 0.9 if ≥2 primary sources agree |
+| Source is low-quality (unsourced blog, AI-generated) | small or no raise (+0 to +0.03) |
+
+Update the `confidence/low`, `confidence/medium`, `confidence/high` tag accordingly (low: <0.6, medium: 0.6-0.8, high: >0.8).
+
+## Contradiction resolution protocol
+
+When a new source contradicts an existing claim, apply in order:
+
+1. **Detect** — identify the specific claim (quote both versions).
+2. **Preserve both** — wrap old claim in `> [!warning] Previous understanding (superseded <date>)` callout with source ref; write new claim as primary.
+3. **Tag** — add `#contradiction` inline at the disagreement point AND to the item's frontmatter tags array.
+4. **Classify** the contradiction:
+   - **Version drift** (old claim was correct at time T1, new claim correct at T2) → mark old as `historical`, new as current. Keep both, no further action.
+   - **Authority conflict** (two sources disagree, both current) → preserve both with source attribution; DO NOT resolve unilaterally. Report to user.
+   - **Clear override** (new primary source from the original author directly refutes old secondary source) → supersede cleanly; note the asymmetry.
+5. **Drop confidence** by -0.1 to -0.2 until user reviews (or until a third source tips the balance).
+6. **Report** to user with: file path, line refs, claim quotes, suggested classification. User makes final call on unresolved conflicts.
+
+Exception: if the contradiction is trivial (typo, numeric precision, synonym) and the new source is clearly more authoritative, resolve silently and note in changelog.
+
+## Forgetting-curve decay
+
+Knowledge doesn't delete — it demotes. Per note:
+
+- `last-accessed` bumps on any read/edit via this skill
+- `review-after` = `last-accessed + N days` where N depends on confidence:
+  - High (>0.8) → 180 days (stable knowledge, revisit less)
+  - Medium (0.6-0.8) → 90 days (default)
+  - Low (<0.6) → 30 days (speculative, worth re-checking)
+- When `review-after` < today, note is **stale** — surfaced in dashboard Dataview queries for review
+- Stale ≠ wrong; just needs a fresh look. On review, user either touches `last-accessed` (re-affirm) or runs `update-knowledge refresh` on the topic
+- **Never auto-demote or auto-delete** — the user reviews and decides
 
 ## When to use which mode
 
