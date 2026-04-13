@@ -1,6 +1,9 @@
 ---
 project: _example
 created: 2026-04-13
+visibility: private
+tags:
+  - project-config
 ---
 
 # Project config
@@ -13,6 +16,11 @@ Skills read this file to adapt output per project. Copy this folder as the start
 - **Standard level:** pragmatic  (strict | pragmatic)
   - `strict` → follow IEEE 830 / BABOK / PMBOK sections rigorously, load standards notes
   - `pragmatic` → use template skeleton, skip sections that don't apply
+- **Visibility:** private  (private | internal | public)
+  - `private` → contains client-confidential data (SOW, pricing, stakeholder names) — gitignored in shared vault repos
+  - `internal` → vendor-team-only (drafts, QA reviews, dev plans) — commit to private team repo; exclude from public publishing
+  - `public` → generic/anonymized (reference architectures, pattern case studies) — safe for public repo / blog
+  - Rule: a project's effective visibility is the **most restrictive** of its files; files can override via their own frontmatter `visibility:`
 
 ## Sign-off tracking
 > Used by `plan-tasks` to decide between post-signoff vs provisional output.
@@ -50,8 +58,9 @@ Override any row if the client has a preference.
 
 ## Folder convention inside this project
 ```
-00-sow/        raw SOW + extracted.md
+00-sow/        raw SOW (private) + extracted.md (internal)
 10-brd/
+10-research/   researcher skill output (scoped to this project)
 20-srs/
 30-sds/
 40-diagrams/
