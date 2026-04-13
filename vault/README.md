@@ -22,6 +22,7 @@ vault/
 | `draft-doc` | "draft SRS / BRD / SDS / test-plan / WBS for <project>" |
 | `make-diagram` | "diagram this flow / sequence / ERD" |
 | `qa-review` | "review / ask questions / next plan for <doc>" |
+| `plan-tasks` | "break down tasks / dev plan / sprint plan / แตก task" |
 | `export-doc` | "export / convert to docx / pdf for client delivery" |
 
 One `draft-doc` skill handles all document types — it reads the project's
