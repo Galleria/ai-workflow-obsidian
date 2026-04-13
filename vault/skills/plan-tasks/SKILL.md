@@ -102,7 +102,7 @@ capacity: <team summary>
 
 | # | Task | Type | Role | Size | Est. (h) | Depends on | Notes |
 |---|---|---|---|---|---:|---|---|
-| T1.1 | Design OTP API contract + DB schema (member, identity, consent tables) | DSG | TL | S | 12 | — | Ties to FR-001, patterns/auth-otp-flow |
+| T1.1 | Design OTP API contract + DB schema (member, identity, consent tables) | DSG | TL | S | 12 | — | Ties to FR-001, library/patterns/auth-otp-flow |
 | T1.2 | Implement OTP request endpoint | BE | BE1 | S | 12 | T1.1 | Redis for code storage |
 | T1.3 | Implement OTP verify endpoint + rate limit | BE | BE1 | S | 10 | T1.2 | constant-time compare |
 | T1.4 | SMS gateway integration | INT | BE1 | S | 8 | T1.2 | depends on provider choice (see QA Q5) |

@@ -28,13 +28,13 @@ srs-version-at-generation: 0.1 (not signed off)
 
 | # | Task | Type | Role | Size | Est. (h) | Depends on | Notes |
 |---|---|---|---|---|---:|---|---|
-| T1.1 | Design: OTP API contract, DB schema (MEMBER, IDENTITY, CONSENT) | DSG | TL | S | 12 | X1 | ref `patterns/auth-otp-flow`, ERD §4.2 |
+| T1.1 | Design: OTP API contract, DB schema (MEMBER, IDENTITY, CONSENT) | DSG | TL | S | 12 | X1 | ref `library/patterns/auth-otp-flow`, ERD §4.2 |
 | T1.2 | BE: OTP request endpoint + rate limit | BE | BE1 | S | 12 | T1.1 | Redis TTL 5min, 3 req/15min |
 | T1.3 | BE: OTP verify endpoint (constant-time compare) | BE | BE1 | S | 10 | T1.2 | fail counter + lockout |
 | T1.4 | INT: SMS gateway (provider TBD — Q5) | INT | BE1 | S | 8 | T1.2 | circuit-breaker fallback |
 | T1.5 | INT: Email transactional send | INT | BE2 | XS | 4 | T1.2 | |
 | T1.6 | MO: Registration + OTP input screens (iOS + Android) | MO | MO1+MO2 | M | 24 | T1.1 | two-field OTP UX |
-| T1.7 | BE: PDPA consent capture + storage | BE | BE2 | S | 10 | T1.1 | ref `patterns/consent-capture` (to build) |
+| T1.7 | BE: PDPA consent capture + storage | BE | BE2 | S | 10 | T1.1 | ref `library/patterns/consent-capture` (to build) |
 | T1.8 | Unit tests (registration module) | TST | BE1 | XS | 6 | T1.3, T1.7 | |
 | T1.9 | E2E: happy path + invalid OTP + dup phone | E2E | QA | S | 8 | T1.3, T1.4, T1.5, T1.6 | |
 | T1.10 | DOC: Registration API + user flow | DOC | BE1 | XS | 3 | T1.3 | |
@@ -50,7 +50,7 @@ srs-version-at-generation: 0.1 (not signed off)
 | T2.1 | Design: Rule engine DSL + schema (EARN_RULE, POINTS_LEDGER, EVENT_LOG) | DSG | TL | M | 20 | T1.1 | append-only ledger, idempotency by tx_id |
 | T2.2 | BE: Rule evaluation engine (filter + formula) | BE | BE1 | M | 32 | T2.1 | |
 | T2.3 | BE: Accrual service (write to ledger, emit events) | BE | BE2 | S | 16 | T2.2 | at-least-once + dedupe |
-| T2.4 | INT: POS webhook receiver (HMAC verify, dedupe, queue) | INT | BE2 | M | 24 | T2.1, X4 | ref `patterns/webhook-integration` |
+| T2.4 | INT: POS webhook receiver (HMAC verify, dedupe, queue) | INT | BE2 | M | 24 | T2.1, X4 | ref `library/patterns/webhook-integration` |
 | T2.5 | OPS: Event queue setup (SQS / Redis Streams) + DLQ | OPS | DevOps | S | 12 | X1 | |
 | T2.6 | BE: Worker to consume queue + call accrual service | BE | BE2 | S | 12 | T2.3, T2.5 | exponential backoff |
 | T2.7 | MO: Notification receive ("ได้รับ N คะแนน") | MO | MO1 | XS | 4 | T2.3, T5.3 | push trigger |
@@ -72,7 +72,7 @@ srs-version-at-generation: 0.1 (not signed off)
 | T3.3 | BE: Voucher validation endpoint (for POS/Magento to consume) | BE | BE1 | S | 12 | T3.2 | |
 | T3.4 | INT: Magento 2 voucher redemption hook | INT | BE2 | M | 20 | T3.3, T7.1 | |
 | T3.5 | MO: Redemption catalog + wallet screens | MO | MO2 | M | 20 | T3.1 | |
-| T3.6 | Admin UI: Catalog CRUD (ties to F6) | FE | FE1 | S | 16 | T6.1 | ref `patterns/crud-admin-entity` |
+| T3.6 | Admin UI: Catalog CRUD (ties to F6) | FE | FE1 | S | 16 | T6.1 | ref `library/patterns/crud-admin-entity` |
 | T3.7 | Unit + integration tests | TST | BE1 | S | 8 | T3.3 | |
 | T3.8 | E2E: redeem → voucher used at POS | E2E | QA | S | 8 | T3.4, T7.4 | |
 
@@ -120,7 +120,7 @@ srs-version-at-generation: 0.1 (not signed off)
 | # | Task | Type | Role | Size | Est. (h) | Depends on | Notes |
 |---|---|---|---|---|---:|---|---|
 | T6.1 | FE: Admin shell (auth, role-based nav, i18n Thai) | FE | FE1 | S | 16 | T1.1, X7 | |
-| T6.2 | FE: Earn rule editor (form + dry-run preview) | FE | FE1 | M | 24 | T6.1, T2.2 | `patterns/crud-admin-entity` |
+| T6.2 | FE: Earn rule editor (form + dry-run preview) | FE | FE1 | M | 24 | T6.1, T2.2 | `library/patterns/crud-admin-entity` |
 | T6.3 | FE: Campaign builder (segment + channel + schedule) | FE | FE1 | M | 24 | T6.1, T12.1 | |
 | T6.4 | FE: Audit log viewer | FE | FE1 | S | 12 | T6.1, X6 | |
 | T6.5 | BE: Admin APIs (CRUD + audit + 4-eye approval) | BE | BE2 | M | 20 | T6.1 | |

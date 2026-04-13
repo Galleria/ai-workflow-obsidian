@@ -9,16 +9,16 @@ One skill, all document types. Template + config drive the output — not hard-c
 
 ## Inputs (from user request)
 - **Project name** — matches a folder under `projects/`
-- **Document type** — one of: `brd`, `srs`, `sds`, `test-plan`, `wbs`, or any other type with a template in `templates/`
+- **Document type** — one of: `brd`, `srs`, `sds`, `test-plan`, `wbs`, or any other type with a template in `library/templates/`
 - **Source** (optional) — path to extracted requirements; defaults to `projects/<name>/_input/extracted.md`
 
 ## Process
 
 1. **Load context**
    - Read `projects/<project>/project-config.md` → language, standard level, diagram tool preferences
-   - Read `templates/<type>-template.md` → section skeleton
+   - Read `library/templates/<type>-template.md` → section skeleton
    - Read source requirements (SOW extract or user-provided)
-   - If `standard level = strict` and a matching note exists in `standards/`, load it (e.g. `standards/ieee-830-srs.md` for SRS)
+   - If `standard level = strict` and a matching note exists in `library/standards/`, load it (e.g. `library/standards/ieee-830-srs.md` for SRS)
 
 2. **Fill the template**
    - Walk sections in template order

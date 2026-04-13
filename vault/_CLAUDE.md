@@ -11,9 +11,10 @@ vault/
 ├── SETUP.md            Obsidian plugin setup (skip unless troubleshooting)
 ├── dashboard.md        live Dataview queries (read on request only)
 ├── skills/             Claude Code skills (read the one being invoked, not all)
-├── templates/          doc skeletons — read only when draft-doc is active
-├── standards/          reference notes (IEEE 830, etc) — load on demand
-├── patterns/           reusable chunks — load on demand
+├── library/
+│   ├── templates/      doc skeletons — read only when draft-doc is active
+│   ├── standards/      reference notes (IEEE 830, etc) — load on demand
+│   └── patterns/       reusable chunks — load on demand
 ├── knowledge/          topic research (second brain) — START with README.md then index.md per topic
 │   ├── README.md           topic catalog (ALWAYS read first before loading a topic)
 │   ├── <topic>/

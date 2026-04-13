@@ -100,7 +100,7 @@ SORT file.folder, type
 
 ```dataview
 LIST
-FROM "standards" OR "patterns"
+FROM "library/standards" OR "library/patterns"
 SORT file.name ASC
 ```
 

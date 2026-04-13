@@ -64,4 +64,4 @@ stateDiagram-v2
 
 ## Related
 - Admin console SRS sections (FR-006 example in SRS template)
-- `patterns/webhook-integration.md` — if CRUD changes trigger downstream sync
+- `library/patterns/webhook-integration.md` — if CRUD changes trigger downstream sync

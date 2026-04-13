@@ -68,7 +68,7 @@ sequenceDiagram
 - **Label actors/components using client domain terms**, not generic "User"/"System" (unless client SOW is that abstract)
 - **Don't exceed ~15 nodes** — if the concept is bigger, split into multiple diagrams (layered: context → container → component)
 - **For BPMN via drawio:** only use when client explicitly wants BPMN notation; otherwise Mermaid flowchart is enough
-- **Check pattern library** (`patterns/`) for common flows (auth, payment, CRUD) before drawing from scratch
+- **Check pattern library** (`library/patterns/`) for common flows (auth, payment, CRUD) before drawing from scratch
 
 ## Output conventions (Obsidian)
 

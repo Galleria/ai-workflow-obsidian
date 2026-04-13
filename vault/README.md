@@ -8,9 +8,10 @@ Obsidian vault + Claude Code skills for document-partner workflow:
 ```
 vault/
 ├── skills/       Claude Code skills (auto-invoked on matching requests)
-├── templates/    Fillable skeletons per doc type (Thai-first)
-├── standards/    Reference notes: IEEE 830, BABOK, BPMN, PMBOK, ...
-├── patterns/     Reusable chunks (auth flow, payment sequence, ...)
+├── library/      Read-only reference material shared across projects
+│   ├── templates/  Fillable skeletons per doc type (Thai-first)
+│   ├── standards/  Reference notes: IEEE 830, BABOK, BPMN, PMBOK, ...
+│   └── patterns/   Reusable chunks (auth flow, payment sequence, ...)
 ├── knowledge/    Second-brain: topic research not tied to a project (from research-outline/deep)
 └── projects/     Per-project folders; each has project-config.md
 ```
@@ -44,8 +45,8 @@ Formatting skills (reference-only, invoked by other skills):
 **Why `plan-tasks` sits after the sign-off gate:** it produces an internal dev plan (estimates, dependencies, sprint allocation) derived from the SRS. If the SRS changes after client review, the dev plan has to be regenerated — running it too early wastes planning effort. Use `plan-tasks --provisional` terminology only for early SOW-sizing needs, and expect to re-run after sign-off.
 
 One `draft-doc` skill handles all document types — it reads the project's
-`project-config.md`, picks the matching template from `templates/`, optionally
-loads the relevant `standards/` note, and fills sections from extracted
+`project-config.md`, picks the matching template from `library/templates/`, optionally
+loads the relevant `library/standards/` note, and fills sections from extracted
 requirements.
 
 `export-doc` requires local install of `pandoc` + `mmdc` (mermaid-cli) — see

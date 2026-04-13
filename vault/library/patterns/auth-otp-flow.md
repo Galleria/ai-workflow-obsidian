@@ -70,5 +70,5 @@ sequenceDiagram
 - Logging OTP for "debugging" → compliance breach
 
 ## Related
-- `patterns/consent-capture.md` (to be added)
+- `library/patterns/consent-capture.md` (to be added)
 - SRS Thai template §3.2 FR-001

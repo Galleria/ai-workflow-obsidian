@@ -55,4 +55,4 @@ flowchart LR
 
 ## Related
 - SRS Thai template §3.2 FR-007 (POS integration example)
-- `patterns/auth-otp-flow.md` for outbound notifications
+- `library/patterns/auth-otp-flow.md` for outbound notifications

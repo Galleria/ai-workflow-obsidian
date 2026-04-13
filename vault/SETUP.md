@@ -26,7 +26,7 @@ Settings → Community plugins → **Turn on** → Browse → install & enable:
 
 | Plugin | Purpose | Required? |
 |---|---|---|
-| **Templater** | Use `templates/` as Obsidian-native inserts | Recommended |
+| **Templater** | Use `library/templates/` as Obsidian-native inserts | Recommended |
 | **Dataview** | Query across projects (e.g., list all open TBDs, all deliverables due this month) | Recommended |
 | **PlantUML** | Render `plantuml` fenced blocks (for use-case / component diagrams) | If using PlantUML |
 | **Diagrams** | Draw.io integration for BPMN / formal client diagrams | Optional |
@@ -36,7 +36,7 @@ Settings → Community plugins → **Turn on** → Browse → install & enable:
 ### Core plugin settings
 - **Graph view:** optional, nice for visualizing links between projects/patterns/standards
 - **Outgoing links, Backlinks:** on (default)
-- **Templates (core):** set template folder to `templates/` if you want Obsidian's built-in template inserter
+- **Templates (core):** set template folder to `library/templates/` if you want Obsidian's built-in template inserter
 
 ### Obsidian preferences
 - **Files & Links** → Default location for new notes: `vault root` (or a scratch folder if you prefer)

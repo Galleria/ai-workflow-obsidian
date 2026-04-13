@@ -156,14 +156,14 @@ Pick one based on gap count:
 ## Research integration
 
 If `research-mode = shallow` or `deep`:
-- Identify 2-3 topics from the extract: domain ("loyalty platform"), integrations ("Oracle XStore"), compliance ("PDPA"), pattern match ("OTP auth" → can reference existing `patterns/auth-otp-flow.md`)
+- Identify 2-3 topics from the extract: domain ("loyalty platform"), integrations ("Oracle XStore"), compliance ("PDPA"), pattern match ("OTP auth" → can reference existing `library/patterns/auth-otp-flow.md`)
 - For each, invoke `research-outline` skill
-- Check `patterns/` library FIRST — if a pattern already exists for the topic, cite it and skip the fresh research
+- Check `library/patterns/` library FIRST — if a pattern already exists for the topic, cite it and skip the fresh research
 - Findings inform §5 (Suggested additions) with citations
 
 If `research-mode = none`:
 - Skip external research
-- Rely on `patterns/` library + standard industry defaults baked into the skill
+- Rely on `library/patterns/` library + standard industry defaults baked into the skill
 
 ## Rules
 
@@ -172,7 +172,7 @@ If `research-mode = none`:
 - **Language:** follow project-config (default Thai). Client-facing sections in Thai; internal in Thai too, but technical terms can stay English.
 - **Every question cites the extract reference** — so PM can point client to "§5 FR-004 says X; we need Y" without hunting.
 - **Prioritize Blockers ruthlessly.** A question is only a Blocker if drafting stalls without it. Everything else is Assumption risk (draftable + confirmable).
-- **Check `patterns/` library** before writing §5 additions — if `patterns/auth-otp-flow.md` already exists, cite it instead of restating.
+- **Check `library/patterns/` library** before writing §5 additions — if `library/patterns/auth-otp-flow.md` already exists, cite it instead of restating.
 - **Respect pattern-compliance inheritance** — if SOW mentions PDPA/HIPAA/etc., loading that standard's compliance checklist into §5 is mandatory.
 
 ## Common scenarios
