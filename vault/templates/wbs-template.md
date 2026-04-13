@@ -2,6 +2,11 @@
 type: wbs
 standard: PMI PMBOK (pragmatic)
 language: th
+tags:
+  - wbs
+  - draft
+aliases:
+  - Work Breakdown Structure
 ---
 
 # Work Breakdown Structure + Project Schedule

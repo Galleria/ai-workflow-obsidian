@@ -2,6 +2,12 @@
 type: sds
 standard: IEEE 1016 (pragmatic) + arc42 influence
 language: th
+tags:
+  - sds
+  - draft
+aliases:
+  - System Design Specification
+  - Software Design Specification
 ---
 
 # เอกสารออกแบบระบบ (System/Software Design Specification)
@@ -22,8 +28,8 @@ language: th
 [modules/services ที่ออกแบบในเอกสารนี้]
 
 ### 1.3 เอกสารอ้างอิง
-- SRS: `../20-srs/srs.md`
-- SOW: `../00-sow/sow-*.md`
+- SRS: [[srs]]
+- SOW extract: [[extracted]]
 - มาตรฐาน: IEEE 1016, arc42
 
 ---

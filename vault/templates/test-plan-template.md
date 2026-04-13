@@ -2,6 +2,11 @@
 type: test-plan
 standard: IEEE 829 (pragmatic) + ISTQB
 language: th
+tags:
+  - test-plan
+  - draft
+aliases:
+  - Test Plan
 ---
 
 # แผนการทดสอบ (Test Plan)
@@ -15,7 +20,7 @@ language: th
 
 ## 1. บทนำ
 - **Scope การทดสอบ:** [ครอบคลุมอะไร / ไม่ครอบคลุมอะไร]
-- **เอกสารอ้างอิง:** SRS v<ver>, SDS v<ver>, SOW Acceptance criteria
+- **เอกสารอ้างอิง:** [[srs]], [[sds]], SOW Acceptance criteria ([[extracted#9. เงื่อนไขการรับมอบและชำระเงิน]])
 
 ## 2. กลยุทธ์การทดสอบ (Test Strategy)
 

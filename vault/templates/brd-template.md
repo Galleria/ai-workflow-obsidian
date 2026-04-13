@@ -2,6 +2,11 @@
 type: brd
 standard: BABOK v3 (pragmatic)
 language: th
+tags:
+  - brd
+  - draft
+aliases:
+  - Business Requirements Document
 ---
 
 # เอกสารข้อกำหนดทางธุรกิจ (Business Requirements Document)

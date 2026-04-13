@@ -10,6 +10,13 @@ winget install --id JohnMacFarlane.Pandoc
 ```
 or download installer: https://pandoc.org/installing.html
 
+**Note:** winget installs pandoc to `%LOCALAPPDATA%\Pandoc\` (e.g. `C:\Users\<you>\AppData\Local\Pandoc`). It should be on PATH after the install completes, but **existing shells won't see it** until restart — close and reopen your terminal / Git Bash / VS Code, or in the current session run:
+```bash
+export PATH="$LOCALAPPDATA/Pandoc:$PATH"   # Git Bash / WSL
+# or PowerShell:
+$env:PATH = "$env:LOCALAPPDATA\Pandoc;$env:PATH"
+```
+
 ### macOS
 ```bash
 brew install pandoc

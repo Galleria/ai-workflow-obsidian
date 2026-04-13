@@ -69,3 +69,10 @@ sequenceDiagram
 - **Don't exceed ~15 nodes** — if the concept is bigger, split into multiple diagrams (layered: context → container → component)
 - **For BPMN via drawio:** only use when client explicitly wants BPMN notation; otherwise Mermaid flowchart is enough
 - **Check pattern library** (`patterns/`) for common flows (auth, payment, CRUD) before drawing from scratch
+
+## Output conventions (Obsidian)
+
+Follow [[obsidian-markdown]] conventions (see [skills/obsidian-markdown/SKILL.md](../obsidian-markdown/SKILL.md)):
+- Frontmatter: add `tags: [<project-slug>, diagram, <type>]` alongside existing `type`, `source`, `tool`
+- If `source` references a requirement (e.g. FR-012), link back with `source: "[[srs#FR-012]]"` so Obsidian renders a backlink
+- For Mermaid flowcharts linking to notes, use `class NodeName internal-link;` to make nodes clickable in reading view

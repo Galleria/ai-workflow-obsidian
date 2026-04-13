@@ -99,6 +99,13 @@ language: <from config>
 - **Preserve client's terminology** — don't auto-translate domain terms unless obviously ambiguous.
 - **Gaps are first-class.** Anything missing goes into §10 so `qa-review` can surface it.
 
+## Output conventions (Obsidian)
+
+Follow [[obsidian-markdown]] conventions (see [skills/obsidian-markdown/SKILL.md](../obsidian-markdown/SKILL.md)):
+- Add to frontmatter: `tags: [<project-slug>, sow, extracted]`
+- Tag gaps inline (`#tbd`) in §10 so they're discoverable via search/Dataview
+- Use `> [!quote]` for §11 raw excerpts (renders distinctly in Obsidian)
+
 ## Report format
 ```
 Extracted: projects/<project>/00-sow/extracted.md

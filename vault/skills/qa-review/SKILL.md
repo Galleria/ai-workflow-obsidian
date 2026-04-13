@@ -85,3 +85,11 @@ mode: both
 - **Write questions in the user's language setting** (default Thai) — the PM forwards them directly to the client
 - **Every question cites its source** — section reference so reviewer can jump back
 - **Risk register is pragmatic, not PMP-textbook** — 5 rows max unless the project is unusually risky
+
+## Output conventions (Obsidian)
+
+Follow [[obsidian-markdown]] conventions (see [skills/obsidian-markdown/SKILL.md](../obsidian-markdown/SKILL.md)):
+- Frontmatter: `review-of: "[[srs]]"` (wikilink) + `tags: [<project-slug>, qa-review]`
+- Client-facing questions use `> [!question]` callouts; internal findings use `> [!warning]`
+- Risk entries tagged `#risk/<severity>` so they aggregate across projects
+- §5 Traceability: link FRs with `[[srs#FR-001]]` so clicking jumps to the SRS section

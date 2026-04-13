@@ -11,8 +11,8 @@
 # Export build artifacts (regenerable — don't version)
 **/_export-build/
 
-# Deliverable exports — optional to version; uncomment next line to keep DOCX/PDF out of git
-# **/_export/
+# Deliverable exports — regenerable from source markdown; don't version
+**/_export/
 
 # OS / editor
 .DS_Store

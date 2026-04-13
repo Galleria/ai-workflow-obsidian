@@ -219,3 +219,11 @@ Critical path: 18 weeks (FR-001 → FR-002 → FR-007 → integration tests → 
 Flags: 0 XL tasks (all split already); 2 risks from under-specified FRs
 Next: tech lead review, then import to Jira
 ```
+
+## Output conventions (Obsidian)
+
+Follow [[obsidian-markdown]] conventions (see [skills/obsidian-markdown/SKILL.md](../obsidian-markdown/SKILL.md)):
+- Frontmatter `source` uses wikilinks: `source: ["[[srs]]", "[[sds]]"]`; also add `tags: [<project-slug>, dev-tasks]`
+- Module headers link the FR back to SRS: `### Module F1 — Customer registration ([[srs#FR-001|FR-001]])`
+- Provisional banner uses `> [!warning] PROVISIONAL — based on unsigned SRS v<ver>, re-run after sign-off`
+- Risk rows in §Open risks tagged `#risk/<severity>` for cross-project aggregation

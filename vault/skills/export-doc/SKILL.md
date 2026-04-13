@@ -129,3 +129,16 @@ Warnings: none
 - **Don't commit `_export-build/`** to Obsidian vault — bloats history
 - **Don't hand-edit the DOCX and sync back** — source is the .md; re-export when content changes
 - **Don't inline base64 images** in md for diagrams — breaks Obsidian preview; use file refs
+
+## Obsidian syntax handling during export
+
+The source md uses [[obsidian-markdown]] conventions (see [skills/obsidian-markdown/SKILL.md](../obsidian-markdown/SKILL.md)). Before pandoc, in the `_export-build/` copy:
+- **Wikilinks** `[[Note]]` and `[[Note|Alias]]` → flatten to plain text (the alias, or the note name). Pandoc doesn't understand wikilinks.
+- **Embeds** `![[image.png]]` / `![[image.png|600]]` → rewrite to `![](image.png){width=600px}`
+- **Note embeds** `![[Note#Section]]` → inline the referenced section's content (or at minimum, plain-text the reference)
+- **Callouts** `> [!note] Title\n> body` → pandoc markdown blockquote with bolded title on first line
+- **Highlights** `==text==` → `**text**` (bold) for DOCX, since ==..== is not standard
+- **Hidden comments** `%%...%%` → strip entirely
+- **Inline tags** `#tag` at line start → leave as-is (pandoc renders literal); mid-sentence tags → strip
+
+Frontmatter custom keys (`tags`, `review-of`, etc.) are ignored by pandoc's default metadata handling, which is fine — they're vault-side only.

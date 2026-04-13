@@ -55,3 +55,11 @@ Next: run qa-review on this doc
 - **Preserve template section order and numbering** — standards tools expect it.
 - **Language consistency:** all sections in the same language unless config says `th+en`.
 - **Diagrams:** don't inline huge ASCII — emit Mermaid/PlantUML code fence or a reference to `projects/<name>/40-diagrams/<name>.md`.
+
+## Output conventions (Obsidian)
+
+Follow [[obsidian-markdown]] conventions (see [skills/obsidian-markdown/SKILL.md](../obsidian-markdown/SKILL.md)):
+- **Frontmatter**: keep template's custom keys AND add `tags: [<project-slug>, <doc-type>, draft]`
+- **Cross-doc refs**: use `[[srs]]`, `[[sds]]`, `[[extracted]]` wikilinks — not relative paths
+- **Callouts**: `> [!note]`, `> [!warning]`, `> [!todo]` for TBD/inferred sections instead of plain blockquotes
+- **Tags** inline (e.g. `#tbd`, `#inferred`) on flagged items so Dataview/search can surface them

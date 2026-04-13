@@ -2,6 +2,11 @@
 type: srs
 standard: IEEE 830-1998
 language: th
+tags:
+  - srs
+  - draft
+aliases:
+  - Software Requirements Specification
 ---
 
 # เอกสารข้อกำหนดความต้องการซอฟต์แวร์ (Software Requirements Specification)
