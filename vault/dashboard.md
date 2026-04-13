@@ -60,7 +60,7 @@ Checkbox-based — unchecked = still open.
 ```dataview
 TASK
 FROM "projects"
-WHERE !completed AND contains(file.path, "99-qa")
+WHERE !completed AND contains(file.path, "/qa/")
 GROUP BY file.link
 ```
 
@@ -75,7 +75,7 @@ TABLE WITHOUT ID
   "reviewed-at" AS "Date",
   mode AS "Mode"
 FROM "projects"
-WHERE contains(file.path, "99-qa")
+WHERE contains(file.path, "/qa/")
 SORT "reviewed-at" DESC
 ```
 

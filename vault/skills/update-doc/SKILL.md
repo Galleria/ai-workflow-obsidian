@@ -13,10 +13,7 @@ Closes the loop between `qa-review` (which produces client questions) and `expor
 
 ## Inputs
 
-- **Target doc path** — the doc to update. Fully path-agnostic; accepts any of:
-  - `projects/<name>/20-srs/srs.md` (numbered-folder convention)
-  - `projects/<name>/document/srs.md` (flat convention)
-  - Any other path under the vault
+- **Target doc path** — the doc to update. Path-agnostic; default convention is `projects/<name>/document/<type>.md` but accepts any path under the vault for legacy projects.
 - **Change source** — one of:
   - **MoM file path** — e.g. `projects/<name>/mom/result/2026-05-20-srs-review.md`
   - **Explicit change list** — pasted by the user in chat (bullet list of changes, decisions, resolved TBDs)
@@ -154,9 +151,6 @@ Follow [[obsidian-markdown]] conventions (already referenced by all other skills
 
 ## Where to run
 
-This skill consumes project-config.md's sign-off table and writes back into the same project folder. Works with any folder convention:
-- Numbered (`20-srs/srs.md`, `99-qa/...`)
-- Flat (`document/srs.md`, `mom/result/...`)
-- Mixed
+This skill consumes project-config.md's sign-off table and writes back into the same project folder. Default convention is `document/<type>.md` + `document/<type>-v0.2.md` for versions. Legacy projects with other layouts (numbered `20-srs/` etc.) still work — the skill follows the target doc's existing path.
 
 No changes to project-config.md are required.

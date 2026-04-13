@@ -14,7 +14,7 @@ Adapted from [Weizhena/Deep-Research-skills](https://github.com/Weizhena/Deep-Re
 ## Inputs
 - **Topic** — free text (e.g. "Thai loyalty platform competitors", "PDPA requirements for SaaS 2026", "event-driven architecture patterns")
 - **Mode** — inferred or asked:
-  - `project:<name>` → ties output to a project under `projects/<name>/10-research/`
+  - `project:<name>` → ties output to a project under `projects/<name>/research/`
   - `standalone` → second-brain mode, output to `knowledge/<topic-slug>/`
 - **Time range** (optional) — "since 2025", "last 6 months", "unlimited". Defaults to "last 2 years" for tech topics, "unlimited" for foundational/academic.
 
@@ -35,7 +35,7 @@ Adapted from [Weizhena/Deep-Research-skills](https://github.com/Weizhena/Deep-Re
 ## Output location
 
 ```
-project:<name>  →  vault/projects/<name>/10-research/<topic-slug>/outline.md
+project:<name>  →  vault/projects/<name>/research/<topic-slug>/outline.md
 standalone      →  vault/knowledge/<topic-slug>/outline.md
 ```
 

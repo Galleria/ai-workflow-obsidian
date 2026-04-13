@@ -150,9 +150,9 @@ The reference DOCX controls fonts, colors, heading styles, margins in the export
 ```bash
 cd vault/projects/sample-loyalty
 # DOCX
-pandoc 20-srs/srs.md -o _export/srs-test.docx --toc
+pandoc document/srs.md -o _export/srs-test.docx --toc
 # PDF (needs xelatex)
-pandoc 20-srs/srs.md -o _export/srs-test.pdf --pdf-engine=xelatex -V mainfont="TH Sarabun New" -V lang=th --toc
+pandoc document/srs.md -o _export/srs-test.pdf --pdf-engine=xelatex -V mainfont="TH Sarabun New" -V lang=th --toc
 ```
 
 If both produce output, skill is ready. Note: without the pre-render step, Mermaid/PlantUML blocks appear as code in the DOCX/PDF — the skill handles the pre-render automatically; raw pandoc calls don't.

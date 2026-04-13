@@ -71,7 +71,7 @@ The skill now detects source file type:
 | `.docx` / `.pptx` / `.xlsx` / `.html` / `.epub` | `markitdown file.ext -o file.md` → then Read the output |
 | scanned image / audio | Requires markitdown extras; warn user before attempting |
 
-Output convention: save the converted markdown to `projects/<name>/00-sow/_converted/<filename>.md`. Git-ignore `_converted/` (regenerable from source).
+Output convention: save the converted markdown to `projects/<name>/_input/_converted/<filename>.md`. Git-ignore `_converted/` (regenerable from source).
 
 ## Troubleshooting
 

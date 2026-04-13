@@ -27,7 +27,7 @@ Both exist because they serve genuinely different concerns at different workflow
 ## Inputs
 
 - **Project name** — `projects/<name>/`
-- **Source extract** — defaults to `projects/<name>/00-sow/extracted.md` or `projects/<name>/document/extracted.md` (path-agnostic — looks for `extracted.md` under project root)
+- **Source extract** — defaults to `projects/<name>/_input/extracted.md` (path-agnostic — falls back to any `extracted.md` under the project root)
 - **Research mode** (optional) — `none` (default, fast) | `shallow` (single research-outline pass on 2-3 topics) | `deep` (invoke research-deep for industry benchmarks)
 
 ## Process
@@ -44,10 +44,10 @@ Both exist because they serve genuinely different concerns at different workflow
 4. **Optional research pass** (if `research-mode != none`):
    - Pick 2-3 topics to research based on domain (identified from extracted §1 + §5)
    - Examples: "loyalty platform common NFRs", "PDPA consent flow requirements", "Oracle XStore integration gotchas"
-   - Invoke `research-outline` per topic → outline lands in `projects/<name>/10-research/<topic>/` (or `document/research/` for flat layout)
+   - Invoke `research-outline` per topic → outline lands in `projects/<name>/research/<topic>/`
    - Use findings to feed the "Suggested additions" section of the output
 5. **Generate the output file** (see structure below)
-6. **Save** to `projects/<name>/99-qa/pre-draft-review-<YYYY-MM-DD>.md` (numbered convention) OR `projects/<name>/mom/source/pre-draft-review-<YYYY-MM-DD>.md` (flat — since it's the input for a client meeting). Detect layout by existing folder structure.
+6. **Save** to `projects/<name>/qa/pre-draft-review-<YYYY-MM-DD>.md`
 7. **Report** summary
 
 ## Output structure
@@ -98,7 +98,7 @@ tags:
 
 ## 5. Suggested additions (สิ่งที่ SOW ไม่ได้พูด แต่ domain ใกล้เคียงมักมี)
 
-> หากเปิด research mode = shallow/deep, รายการเหล่านี้มี citation จาก `projects/<name>/10-research/...`
+> หากเปิด research mode = shallow/deep, รายการเหล่านี้มี citation จาก `projects/<name>/research/...`
 
 ### 5.1 Compliance / legal
 - **PDPA consent flow** — SOW mention PDPA แต่ไม่ระบุ flow การขอ consent + right-to-be-forgotten (`#suggested`)
@@ -188,8 +188,8 @@ If `research-mode = none`:
 ## Report format
 
 ```
-Pre-draft review: projects/<name>/99-qa/pre-draft-review-<date>.md
-Source: projects/<name>/00-sow/extracted.md
+Pre-draft review: projects/<name>/qa/pre-draft-review-<date>.md
+Source: projects/<name>/_input/extracted.md
 Readiness to draft: 6/10
 Blockers: 4 | Assumption risks: 7 | Industry additions: 5
 Recommended next: schedule 1-hour requirement workshop

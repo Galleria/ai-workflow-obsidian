@@ -23,7 +23,7 @@ mmdc --version
 If missing, stop and tell the user to run the `install.md` steps.
 
 ## Inputs
-- **Source md path** — e.g. `projects/sample-loyalty/20-srs/srs.md`
+- **Source md path** — e.g. `projects/sample-loyalty/document/srs.md`
 - **Target format** — `docx` (default) | `pdf`
 - **Project name** (auto-detected from path if under `projects/<name>/...`)
 
@@ -80,7 +80,7 @@ If the block is missing, use built-in defaults (plain pandoc reference docx + `T
 
 ```
 projects/<name>/
-├── 20-srs/
+├── document/
 │   ├── srs.md                       ← source (edited here)
 │   └── _export-build/               ← git-ignore; cached diagram PNGs
 │       ├── diagram-01.png
@@ -109,7 +109,7 @@ _export/
 
 ```
 Exported: projects/sample-loyalty/_export/srs-20260413.docx (1.8 MB)
-Source:   projects/sample-loyalty/20-srs/srs.md
+Source:   projects/sample-loyalty/document/srs.md
 Diagrams: 3 Mermaid rendered, 0 PlantUML skipped
 Warnings: none
 ```

@@ -33,7 +33,7 @@ vault/
 
 **When the user asks about a project:**
 1. Read `projects/<name>/project-config.md` — always
-2. Read `projects/<name>/00-sow/extracted.md` if present
+2. Read `projects/<name>/_input/extracted.md` if present
 3. Load specific deliverables (srs.md, sds.md, etc.) only when relevant
 
 **When the user invokes a skill:**

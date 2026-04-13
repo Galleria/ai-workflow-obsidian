@@ -85,7 +85,7 @@ POC นี้เป็น **doc-workflow partner** เป็นหลัก + se
 - **2026-04-13** (initial) — 5 items, outline + index + consolidated opinion. Source: research-outline + research-deep demo
 
 ## Open threads
-- ดูว่า `knowledge/` vs `projects/*/10-research/` จะ cross-pollinate ยังไง — เช่น pattern ที่เจอจาก project A ย้ายเป็น evergreen note ใน `knowledge/` ได้ไหม
+- ดูว่า `knowledge/` vs `projects/*/research/` จะ cross-pollinate ยังไง — เช่น pattern ที่เจอจาก project A ย้ายเป็น evergreen note ใน `knowledge/` ได้ไหม
 - Bi-temporal facts ใน PKM: under-studied — อาจคุ้มค่า revisit ใน phase ถัดไป
 
 ## Follow-up research ideas (ถ้าอยาก expand)

@@ -108,12 +108,12 @@ Respect the repo's `.gitignore` — it excludes `_export-build/` (regenerable) a
 
 ## 6. Smoke test
 
-1. In Obsidian, open `vault/projects/sample-loyalty/20-srs/srs.md` — Mermaid diagram in §2.1 should render
-2. Open `vault/projects/sample-loyalty/40-diagrams/erd-loyalty.md` — ERD visible
+1. In Obsidian, open `vault/projects/sample-loyalty/document/srs.md` — Mermaid diagram in §2.1 should render
+2. Open `vault/projects/sample-loyalty/diagram/erd-loyalty.md` — ERD visible
 3. (If export tooling installed) from repo root:
    ```bash
    cd vault/projects/sample-loyalty
-   pandoc 20-srs/srs.md -o _export/srs-test.docx --toc
+   pandoc document/srs.md -o _export/srs-test.docx --toc
    ```
    Open the DOCX in Word — should have headings, TOC, and tables. (Mermaid blocks will appear as code — run via the `export-doc` skill for pre-rendered diagrams.)
 
@@ -125,7 +125,7 @@ Respect the repo's `.gitignore` — it excludes `_export-build/` (regenerable) a
 cp -r vault/projects/_example vault/projects/<client-slug>
 ```
 
-Edit `project-config.md`, drop the real SOW into `00-sow/`, and invoke skills:
+Edit `project-config.md`, drop the real SOW / TOR into `_input/raw/`, and invoke skills:
 
 1. "Extract the SOW for `<client-slug>`" → `extract-sow` produces `extracted.md`
 2. "Draft SRS for `<client-slug>`" → `draft-doc` fills the template

@@ -58,17 +58,44 @@ Override any row if the client has a preference.
 
 ## Folder convention inside this project
 ```
-00-sow/        raw SOW (private) + extracted.md (internal)
-10-brd/
-10-research/   researcher skill output (scoped to this project)
-20-srs/
-30-sds/
-40-diagrams/
-50-test-plan/
-60-wbs/
-99-qa/         questions, decisions, next-plan logs
-_export/       DOCX / PDF deliverables produced by export-doc (git-ignore optional)
+_input/                         client-submitted materials (SOW/TOR/brief)
+├── raw/                          original PDFs/DOCX (private, gitignored)
+└── extracted.md                  extract-sow output
+
+research/                       research-outline/deep, scoped to this project
+├── <topic>/outline.md
+└── <topic>/items/
+
+qa/                             review artifacts
+├── pre-draft-review-<date>.md    pre-draft-review output (before drafting)
+└── <doc>-review-<date>.md        qa-review output (after drafting)
+
+mom/                            meeting records
+├── source/                       raw notes, transcripts, agenda
+├── result/                       structured MoM (from draft-doc mom-template)
+└── assets/                       slides, whiteboard photos
+
+document/                       all drafted docs (srs/brd/sds/wbs/test-plan/sow/tor/…)
+├── <doctype>.md                  current version
+├── <doctype>-v0.2.md             version series side-by-side (from update-doc)
+└── change-log.md                 optional summary across versions
+
+diagram/                        all diagrams (Mermaid .md / PlantUML .puml / draw.io)
+└── <type>-<slug>.md
+
+planning/                       post-signoff plans
+├── dev-tasks.md                  plan-tasks output
+└── sprint-notes/                 per-sprint notes
+
+assets/                         shared project-level images, logos
+_export/                        DOCX / PDF final deliverables (gitignored — regenerable)
 ```
+
+**Naming conventions:**
+- Prefix `_` for system/non-content folders (`_input`, `_export`) — keeps them pinned in Obsidian file tree
+- Singular form (`document`, `diagram`) — not plural
+- Doc versions live side-by-side: `srs.md` + `srs-v0.2.md` + `srs-v0.3.md` so reviewers can compare
+- Date format `YYYY-MM-DD` in file names for chronological sort
 
 ## Export (for `export-doc` skill)
 - **Reference DOCX:** [unset — uses pandoc default]  (path relative to vault/, e.g. `_assets/<client>-brand-reference.docx`)

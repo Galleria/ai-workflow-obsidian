@@ -77,7 +77,7 @@ Delete the test paragraphs before saving.
 
 ```bash
 cd vault/projects/<client-project>/
-pandoc 20-srs/srs.md -o _export/srs-test.docx \
+pandoc document/srs.md -o _export/srs-test.docx \
   --reference-doc=../../_assets/<client>-brand-reference.docx \
   --toc
 ```

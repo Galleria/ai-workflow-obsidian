@@ -35,7 +35,7 @@ vault/
 
 `pre-draft-review` runs a similar gap analysis **before** drafting starts — separating pre-draft questions (info PM needs to draft reliably) from post-draft questions (info client needs to confirm in the draft). Optional research-mode can invoke `research-outline`/`research-deep` to back §5 Suggested additions with cited sources.
 
-`research-outline` + `research-deep` are **independent** of the document workflow — they can be used standalone (output lands in `knowledge/<topic>/`) for personal knowledge-base / second-brain needs, or project-scoped (`projects/<name>/10-research/<topic>/`) to inform SOW extraction / SRS NFR drafting.
+`research-outline` + `research-deep` are **independent** of the document workflow — they can be used standalone (output lands in `knowledge/<topic>/`) for personal knowledge-base / second-brain needs, or project-scoped (`projects/<name>/research/<topic>/`) to inform SOW extraction / SRS NFR drafting.
 
 Formatting skills (reference-only, invoked by other skills):
 - `obsidian-markdown` — wikilinks, callouts, frontmatter, embeds syntax
@@ -56,7 +56,7 @@ additionally needs XeLaTeX and a Thai font (TH Sarabun New recommended).
 
 1. `cp -r projects/_example projects/<name>`
 2. Edit `projects/<name>/project-config.md` — set language, standard level, diagram tools, deliverables
-3. Drop the SOW into `projects/<name>/00-sow/`
+3. Drop the SOW / TOR into `projects/<name>/_input/raw/` (binary originals; raw PDFs/DOCX stay gitignored)
 4. Invoke skills conversationally in order:
    - "extract the SOW in `<name>`"
    - "draft SRS for `<name>`"

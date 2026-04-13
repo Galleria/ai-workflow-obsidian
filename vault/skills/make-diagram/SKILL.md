@@ -33,7 +33,7 @@ Override via `project-config.md` → Diagram tool table, or explicit user instru
 1. Read `project-config.md` for tool preference (if project given)
 2. Pick tool via table above + overrides
 3. Generate the diagram code
-4. Save to `projects/<project>/40-diagrams/<type>-<slug>.md` with the fenced code block, OR return inline if user didn't name a project
+4. Save to `projects/<project>/diagram/<type>-<slug>.md` with the fenced code block, OR return inline if user didn't name a project
 5. If tool = `drawio`, save as `.drawio` XML instead and note that it needs the draw.io Obsidian plugin to render
 
 ## Output file format (Mermaid example)

@@ -33,7 +33,7 @@ aliases:
 | [TBD] | [TBD] |
 
 ### 1.4 เอกสารอ้างอิง (References)
-- [SOW: projects/<name>/00-sow/...]
+- [SOW: projects/<name>/_input/...]
 - [มาตรฐานที่ใช้: IEEE 830-1998]
 - [เอกสารอื่น ๆ]
 

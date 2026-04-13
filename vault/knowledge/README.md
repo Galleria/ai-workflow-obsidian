@@ -38,7 +38,7 @@ Entry point for topic research not tied to a specific project. **Read this file 
 
 ## Cross-project pollination
 
-When a project research (`projects/<name>/10-research/<topic>/`) produces insights generic enough to reuse, **promote** it:
+When a project research (`projects/<name>/research/<topic>/`) produces insights generic enough to reuse, **promote** it:
 - Copy or move the relevant items to `knowledge/<topic>/`
 - Anonymize client specifics
 - Change visibility to `internal` or `public` as appropriate

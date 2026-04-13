@@ -9,7 +9,7 @@ Turns a raw SOW (PDF/DOCX/MD/plain text) into a normalized `extracted.md` that d
 
 ## Inputs
 - **Project name** — folder under `projects/`
-- **Source file(s)** — defaults to whatever is in `projects/<project>/00-sow/` (other than `extracted.md`)
+- **Source file(s)** — defaults to whatever is in `projects/<project>/_input/raw/` or `projects/<project>/_input/` (other than `extracted.md`)
 
 ## Process
 
@@ -18,14 +18,14 @@ Turns a raw SOW (PDF/DOCX/MD/plain text) into a normalized `extracted.md` that d
    - `.pdf` → Read tool (handles Thai PDF natively)
    - `.docx` / `.pptx` / `.xlsx` / `.html` / `.epub` → **preprocess with markitdown** (see `install.md`):
      ```bash
-     markitdown <path> -o projects/<project>/00-sow/_converted/<name>.md
+     markitdown <path> -o projects/<project>/_input/_converted/<name>.md
      ```
      then Read the converted `.md`. Save originals untouched; `_converted/` is git-ignored.
    - If markitdown is not installed and source is not PDF/MD → stop and direct user to `install.md`.
    - Multiple files → merge in filename order.
 2. **Load** `projects/<project>/project-config.md` for language preference.
 3. **Extract** into the canonical structure below. Every field either has content or `[TBD: <what's missing>]` — never skip.
-4. **Save** to `projects/<project>/00-sow/extracted.md`.
+4. **Save** to `projects/<project>/_input/extracted.md`.
 5. **Report** counts + top gaps + which source files went through markitdown vs Read.
 
 ## Canonical output structure (`extracted.md`)
@@ -117,7 +117,7 @@ Follow [[obsidian-markdown]] conventions (see [skills/obsidian-markdown/SKILL.md
 
 ## Report format
 ```
-Extracted: projects/<project>/00-sow/extracted.md
+Extracted: projects/<project>/_input/extracted.md
 Sections: 11 filled, X contain TBDs
 Top gaps (for client clarification):
   - ...

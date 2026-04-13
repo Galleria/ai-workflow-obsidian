@@ -24,7 +24,7 @@ The typical order for a new project is: `extract-sow` → `draft-doc` → `make-
 
 ## Inputs
 - **Project name** — `projects/<name>/`
-- **Source doc** — defaults to `20-srs/srs.md`; also reads `30-sds/sds.md` if present
+- **Source doc** — defaults to `document/srs.md`; also reads `document/sds.md` if present
 - **Team capacity** (optional) — e.g. "2 backend devs, 2 mobile devs, 1 QA, 6-month window"
 - **Iteration length** (optional) — default 2 weeks
 
@@ -47,7 +47,7 @@ The typical order for a new project is: `extract-sow` → `draft-doc` → `make-
    - Gantt sequenced against team capacity (Mermaid)
    - Sprint/iteration plan if iteration length given
    - Risk callouts for under-specified FRs
-9. **Save** to `projects/<name>/60-wbs/`:
+9. **Save** to `projects/<name>/planning/`:
    - Post-signoff: `dev-tasks.md`
    - Provisional: `dev-tasks-provisional-<YYYYMMDD>.md` + header banner "⚠ PROVISIONAL — based on unsigned SRS v<ver>, re-run after sign-off"
 10. **Report** summary (note provisional status if applicable)
@@ -81,7 +81,7 @@ For each functional requirement, expand into these task types — omit lines tha
 ---
 type: dev-tasks
 project: <name>
-source: 20-srs/srs.md (+ 30-sds/sds.md if present)
+source: document/srs.md (+ document/sds.md if present)
 generated: YYYY-MM-DD
 iteration: 2 weeks
 capacity: <team summary>
@@ -211,7 +211,7 @@ gantt
 ## Report format
 
 ```
-Generated: projects/<name>/60-wbs/dev-tasks.md
+Generated: projects/<name>/planning/dev-tasks.md
 FRs: 12 | NFRs mapped to 5 cross-cutting tasks
 Tasks: 87 total (68 feature, 14 ops, 5 cross-cutting)
 Estimated effort: 42 person-weeks

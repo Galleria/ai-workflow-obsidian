@@ -19,7 +19,7 @@ The closing step of the workflow. Takes a drafted doc (or SOW extract) and produ
 
 1. Read `project-config.md` for language + standard level
 2. Read the target doc
-3. If target = a drafted deliverable, also read `00-sow/extracted.md` for source traceability
+3. If target = a drafted deliverable, also read `_input/extracted.md` for source traceability
 4. Walk the doc and classify each issue:
    - **TBD** — explicit placeholder → becomes client question
    - **Inferred** — filled by assistant, needs confirmation → client question with current guess
@@ -27,14 +27,14 @@ The closing step of the workflow. Takes a drafted doc (or SOW extract) and produ
    - **Conflicting** — contradicts another section or SOW → internal red flag
    - **Missing standard section** — required by standard but absent → internal flag (if strict mode)
    - **Risk** — unquantified NFR, aggressive timeline, unclear acceptance → risk register entry
-5. Save output to `projects/<project>/99-qa/<doc>-review-<YYYY-MM-DD>.md`
+5. Save output to `projects/<project>/qa/<doc>-review-<YYYY-MM-DD>.md`
 6. Report summary
 
 ## Output structure
 
 ```markdown
 ---
-review-of: projects/<project>/20-srs/srs.md
+review-of: projects/<project>/document/srs.md
 reviewed-at: YYYY-MM-DD
 mode: both
 ---

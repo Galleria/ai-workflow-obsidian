@@ -53,8 +53,8 @@ version: 0.1
 | CR | Change Request |
 
 ### 1.4 เอกสารอ้างอิง
-- SOW: `projects/sample-loyalty/00-sow/sow-acme-loyalty.md`
-- SOW extract: `projects/sample-loyalty/00-sow/extracted.md`
+- SOW: `projects/sample-loyalty/_input/raw/sow-acme-loyalty.md`
+- SOW extract: `projects/sample-loyalty/_input/extracted.md`
 - มาตรฐาน: IEEE Std 830-1998 (pragmatic subset)
 - กฎหมาย: พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)
 
@@ -264,11 +264,11 @@ N/A (cloud-hosted)
 > จะระบุละเอียดใน SDS. เบื้องต้นดู diagram ใน §2.1
 
 ### 4.2 ERD (outline)
-> จะวาดใน `projects/sample-loyalty/40-diagrams/erd-loyalty.md` ผ่าน skill `make-diagram`
+> จะวาดใน `projects/sample-loyalty/diagram/erd-loyalty.md` ผ่าน skill `make-diagram`
 
 ### 4.3 เอกสารแนบ
-- SOW ต้นฉบับ: `00-sow/sow-acme-loyalty.md`
-- SOW extract: `00-sow/extracted.md`
+- SOW ต้นฉบับ: `_input/raw/sow-acme-loyalty.md`
+- SOW extract: `_input/extracted.md`
 
 ---
 

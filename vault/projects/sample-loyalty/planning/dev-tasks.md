@@ -1,7 +1,7 @@
 ---
 type: dev-tasks
 project: sample-loyalty
-source: 20-srs/srs.md
+source: document/srs.md
 generated: 2026-04-13
 iteration: 2 weeks
 capacity: 2 BE, 2 MO, 1 FE, 1 QA, 0.5 DevOps, 1 TL, 1 BA, 0.5 PM — 6 months (2026-05-01 → 2026-10-31)
@@ -13,7 +13,7 @@ srs-version-at-generation: 0.1 (not signed off)
 
 > **⚠ PROVISIONAL** — generated against unsigned SRS v0.1 as a fixture example.
 > **Re-run `plan-tasks` after client sign-off** to produce the canonical `dev-tasks.md`.
-> See SRS QA review (99-qa/srs-review-2026-04-13.md) — 5 blocking client questions still open; several tasks here will shift once answered.
+> See SRS QA review (qa/srs-review-2026-04-13.md) — 5 blocking client questions still open; several tasks here will shift once answered.
 
 ## Summary
 - **FRs decomposed:** 12 (FR-001..FR-012)
@@ -370,7 +370,7 @@ gantt
 
 ## Report (from `plan-tasks` skill)
 
-- Generated: `projects/sample-loyalty/60-wbs/dev-tasks.md`
+- Generated: `projects/sample-loyalty/planning/dev-tasks.md`
 - FRs decomposed: 12; NFRs → 10 cross-cutting tasks
 - Tasks: 102 total (78 feature, 14 ops/cross-cutting, 10 QA+migration)
 - Estimated effort: ~48 person-weeks

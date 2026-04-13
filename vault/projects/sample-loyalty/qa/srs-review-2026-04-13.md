@@ -1,5 +1,5 @@
 ---
-review-of: projects/sample-loyalty/20-srs/srs.md
+review-of: projects/sample-loyalty/document/srs.md
 reviewed-at: 2026-04-13
 mode: both
 ---

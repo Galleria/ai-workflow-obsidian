@@ -10,7 +10,7 @@ One skill, all document types. Template + config drive the output — not hard-c
 ## Inputs (from user request)
 - **Project name** — matches a folder under `projects/`
 - **Document type** — one of: `brd`, `srs`, `sds`, `test-plan`, `wbs`, or any other type with a template in `templates/`
-- **Source** (optional) — path to extracted requirements; defaults to `projects/<name>/00-sow/extracted.md`
+- **Source** (optional) — path to extracted requirements; defaults to `projects/<name>/_input/extracted.md`
 
 ## Process
 
@@ -30,7 +30,7 @@ One skill, all document types. Template + config drive the output — not hard-c
    - If section calls for a diagram, emit a `make-diagram` request inline or include a stub fenced block using the tool from config
 
 3. **Save**
-   - Path: `projects/<project>/<NN>-<type>/<type>.md` (use folder convention from project-config)
+   - Path: `projects/<project>/document/<type>.md` (MoM uses `projects/<project>/mom/result/<date>-<topic>.md`)
    - If file exists, create numbered version `<type>-v2.md` rather than overwrite
 
 4. **Report**
@@ -40,7 +40,7 @@ One skill, all document types. Template + config drive the output — not hard-c
 
 ## Output format
 ```
-Drafted: projects/<project>/20-srs/srs.md
+Drafted: projects/<project>/document/srs.md
 Sections: 14 filled, 3 inferred, 2 TBD
 TBDs:
   - Section 3.2 Performance: no NFR data in SOW
@@ -54,7 +54,7 @@ Next: run qa-review on this doc
 - **Never invent requirements.** If the SOW doesn't say it, mark TBD.
 - **Preserve template section order and numbering** — standards tools expect it.
 - **Language consistency:** all sections in the same language unless config says `th+en`.
-- **Diagrams:** don't inline huge ASCII — emit Mermaid/PlantUML code fence or a reference to `projects/<name>/40-diagrams/<name>.md`.
+- **Diagrams:** don't inline huge ASCII — emit Mermaid/PlantUML code fence or a reference to `projects/<name>/diagram/<name>.md`.
 
 ## Output conventions (Obsidian)
 

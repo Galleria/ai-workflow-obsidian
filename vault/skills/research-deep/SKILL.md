@@ -12,7 +12,7 @@ Stage 2 of 2. Reads an outline produced by `research-outline`, researches each i
 Adapted from [Weizhena/Deep-Research-skills](https://github.com/Weizhena/Deep-Research-skills) — simplified: markdown per item instead of JSON, no validation script, uses built-in Claude web tools instead of Exa.
 
 ## Inputs
-- **Outline path** — defaults to the most recent `outline.md` under `knowledge/` or `projects/*/10-research/` (ask if ambiguous)
+- **Outline path** — defaults to the most recent `outline.md` under `knowledge/` or `projects/*/research/` (ask if ambiguous)
 - **Parallelism** — how many items to research concurrently (default: 3; ask if outline has >10 items)
 
 ## Process
@@ -188,4 +188,4 @@ Follow [[obsidian-markdown]] conventions (see [skills/obsidian-markdown/SKILL.md
 ## When standalone vs project
 
 - **Standalone (second brain)**: output under `knowledge/` — no project-config lookup; visibility defaults to `internal`
-- **Project-scoped**: output under `projects/<name>/10-research/` — inherit language + visibility from `project-config.md`; optionally feed findings into the project's `extracted.md` or SRS draft manually (not auto)
+- **Project-scoped**: output under `projects/<name>/research/` — inherit language + visibility from `project-config.md`; optionally feed findings into the project's `extracted.md` or SRS draft manually (not auto)
