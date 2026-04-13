@@ -13,11 +13,20 @@ Turns a raw SOW (PDF/DOCX/MD/plain text) into a normalized `extracted.md` that d
 
 ## Process
 
-1. **Load** the source SOW. If it's a PDF, read via the Read tool. If multiple files, merge in filename order.
+1. **Load** the source SOW — path-dispatch on extension:
+   - `.md` / `.txt` → Read directly
+   - `.pdf` → Read tool (handles Thai PDF natively)
+   - `.docx` / `.pptx` / `.xlsx` / `.html` / `.epub` → **preprocess with markitdown** (see `install.md`):
+     ```bash
+     markitdown <path> -o projects/<project>/00-sow/_converted/<name>.md
+     ```
+     then Read the converted `.md`. Save originals untouched; `_converted/` is git-ignored.
+   - If markitdown is not installed and source is not PDF/MD → stop and direct user to `install.md`.
+   - Multiple files → merge in filename order.
 2. **Load** `projects/<project>/project-config.md` for language preference.
 3. **Extract** into the canonical structure below. Every field either has content or `[TBD: <what's missing>]` — never skip.
 4. **Save** to `projects/<project>/00-sow/extracted.md`.
-5. **Report** counts + top gaps.
+5. **Report** counts + top gaps + which source files went through markitdown vs Read.
 
 ## Canonical output structure (`extracted.md`)
 

@@ -1,0 +1,57 @@
+---
+type: research-item
+topic: Living knowledge base
+item: Obsidian + Claude patterns (AI-as-writer vaults)
+category: modern-tooling
+parent: "[[outline]]"
+researched: 2026-04-13
+tags:
+  - research
+  - research/deep
+  - living-knowledge-base
+  - tooling
+---
+
+# Obsidian + Claude patterns
+
+> [!summary]
+> Generation ใหม่ของ "living knowledge base" ที่ Claude (หรือ LLM) เป็น primary reader/writer — vault กลายเป็น database ที่ agent operate บน. แตกต่างจาก human-only vault เพราะ ingestion สามารถ rewrite หลายหน้าพร้อมกัน และมี scheduled background ops
+
+## Core idea
+Vault หยุด static. Claude เห็น vault เป็น workspace:
+- ingest source ใหม่ → **rewrite 5-15 หน้าที่เกี่ยวข้อง** (ไม่ใช่แค่ append)
+- resolve contradictions ข้ามหน้าอัตโนมัติ
+- scheduled agents (morning/nightly/weekly) ทำ maintenance: daily notes, orphan linking, review prompts
+
+## Key principles
+- **`_CLAUDE.md` operating manual** — vault-root file บอก Claude ว่า vault นี้ organize ยังไง, commands ทำอะไร
+- **Always-loaded `CRITICAL_FACTS.md`** — ~120 tokens pinned เสมอ (user identity, current projects, hard constraints) — trick ที่ Karpathy promote [^3]
+- **`index.md` catalog** — หน้าที่ Claude อ่านก่อนเสมอ เพื่อรู้ว่าใน vault มีอะไรบ้าง
+- **Bi-temporal facts** — track ทั้ง "เมื่อไหร่ข้อมูลนี้จริง" และ "เมื่อไหร่ vault รู้" → audit trail
+- **Immutable `raw/`** — เก็บ source ต้นฉบับแยกจาก synthesized notes
+
+## Tools / examples
+- [eugeniughelbur/obsidian-second-brain](https://github.com/eugeniughelbur/obsidian-second-brain) — Claude Code skill, reference implementation [^1]
+- [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) — official Obsidian author's skills (markdown, bases, canvas) [^2]
+- [Weizhena/Deep-Research-skills](https://github.com/Weizhena/Deep-Research-skills) — structured research workflow
+- แนวนี้กำลัง mainstream เร็วในปี 2025-2026 เพราะ Claude Code's Skill format + Agent SDK
+
+## Strengths & trade-offs
+- ✅ **Compounds automatically** — morning/nightly agents ทำให้ vault healthy โดยไม่ต้อง manual review
+- ✅ **Multi-modal ingestion** — URL/PDF/audio/image เข้าได้ทันที
+- ⚠️ **Trust boundary** — Claude อาจ rewrite ผิด; ต้องมี git + review gate
+- ⚠️ **Cost** — scheduled agents = API usage ต่อเนื่อง; ไม่ฟรี
+- ⚠️ **Less tangible ownership** — user อาจรู้สึกว่า vault "ไม่ใช่ของตัวเอง" ถ้า AI เขียนเยอะเกิน
+
+## Relation to foundations
+- แนวคิด atomic + linked notes จาก [[items/zettelkasten]] ยังใช้
+- Compound-over-time จาก [[items/evergreen-notes]] ยังจริง (และเร่งได้)
+- Workflow ของ [[items/second-brain-para]] ถูก automate (capture → organize → distill ทำโดย agent)
+
+## Sources
+[^1]: [eugeniughelbur/obsidian-second-brain README](https://github.com/eugeniughelbur/obsidian-second-brain) — accessed 2026-04-13
+[^2]: [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills)
+[^3]: ทำตาม Andrej Karpathy — Everyday with Captain (YouTube: egBoq66lCRc) — pinned-context trick
+
+> [!opinion] AI take #opinion
+> แนวนี้เป็น **real step-change** ไม่ใช่แค่ incremental — AI agent ที่ rewrite vault ได้ทำให้ "compound" จากทฤษฎีกลายเป็นจริงได้เร็วขึ้นมาก (user ไม่ต้องจำว่า note ไหนควร update). แต่ bet ที่ต้องวางคือ **trust**: ถ้า agent เขียนผิดแล้วไม่รู้ตัว vault จะเน่าเงียบๆ. Mitigation ที่จำเป็น 3 อย่าง — (1) git commit ทุก agent run, (2) diff review อย่างน้อยสัปดาห์ละครั้ง, (3) always-loaded `CRITICAL_FACTS.md` เพื่อ ground agent. POC ของเราทำข้อ 1 ได้แล้ว (vault เป็น git repo), ยังไม่มีข้อ 2-3. ถ้า move ไปแนวนี้เต็มตัว อย่าข้ามสามข้อนี้

@@ -11,6 +11,7 @@ vault/
 ├── templates/    Fillable skeletons per doc type (Thai-first)
 ├── standards/    Reference notes: IEEE 830, BABOK, BPMN, PMBOK, ...
 ├── patterns/     Reusable chunks (auth flow, payment sequence, ...)
+├── knowledge/    Second-brain: topic research not tied to a project (from research-outline/deep)
 └── projects/     Per-project folders; each has project-config.md
 ```
 
@@ -18,13 +19,24 @@ vault/
 
 | # | Skill | When to run | Triggered by |
 |---|---|---|---|
+| 0a | `research-outline` | optional — before SOW extract (industry/compliance/pattern research) or for standalone second-brain use | "/research <topic>", "research X for this project", "วิจัยเรื่อง X" |
+| 0b | `research-deep` | after `research-outline`, expands the outline into per-item atomic notes | "/research-deep", "expand outline", "ลงลึก research" |
 | 1 | `extract-sow` | after receiving SOW | "extract / parse this SOW or requirement doc" |
 | 2 | `draft-doc` | after SOW extracted | "draft SRS / BRD / SDS / test-plan / WBS for <project>" |
 | 3 | `make-diagram` | during/after drafting (for any doc needing a visual) | "diagram this flow / sequence / ERD" |
 | 4 | `qa-review` | after a draft is finished | "review / ask questions / next plan for <doc>" |
 | 5 | `export-doc` | before sending a doc to the client | "export / convert to docx / pdf for client delivery" |
+| 5a | `update-doc` | after client meeting / MoM / email brings changes — bumps version, adds change markers, updates Revision History | "update / revise / bump / แก้ตาม MoM / apply changes to <doc>" |
 | — | **⏸ CLIENT SIGN-OFF GATE** | **wait for client to confirm SRS / SDS** | — |
 | 6 | `plan-tasks` | **only after sign-off** (or "provisional" for internal sizing) | "break down tasks / dev plan / sprint plan / แตก task" |
+
+`update-doc` is the revision loop — runs as many times as needed between initial draft and sign-off (or post-signoff for CRs). Typical cycle: `qa-review` → client meeting → MoM → `update-doc` → repeat until accepted.
+
+`research-outline` + `research-deep` are **independent** of the document workflow — they can be used standalone (output lands in `knowledge/<topic>/`) for personal knowledge-base / second-brain needs, or project-scoped (`projects/<name>/10-research/<topic>/`) to inform SOW extraction / SRS NFR drafting.
+
+Formatting skills (reference-only, invoked by other skills):
+- `obsidian-markdown` — wikilinks, callouts, frontmatter, embeds syntax
+- `obsidian-bases` — `.base` files for sortable/filterable views (optional)
 
 **Why `plan-tasks` sits after the sign-off gate:** it produces an internal dev plan (estimates, dependencies, sprint allocation) derived from the SRS. If the SRS changes after client review, the dev plan has to be regenerated — running it too early wastes planning effort. Use `plan-tasks --provisional` terminology only for early SOW-sizing needs, and expect to re-run after sign-off.
 
