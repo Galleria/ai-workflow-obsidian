@@ -37,6 +37,29 @@ PDF, DOCX, PPTX, XLSX, HTML, CSV, JSON, XML, ZIP, EPub, images (with optional OC
 - **OCR** for scanned images requires the `markitdown-ocr` plugin + an LLM client (OpenAI-compatible endpoint).
 - **High-fidelity formatting** (tables with merged cells, complex layouts) may not round-trip cleanly — markitdown is optimized for LLM consumption, not human-readable reproduction.
 
+### Quirks observed in smoke tests (markitdown 0.1.5, 2026-04-13)
+
+Tested with synthetic Thai SOW (DOCX + PPTX + XLSX). Thai text preservation: 100% across all three formats. Structural quirks to handle downstream:
+
+**DOCX**
+- **Level-0 heading (document title)** → emitted as plain text, NOT `#`. If the Word doc uses the "Title" style for the document name, `extract-sow` must infer the title from context (first paragraph, filename, or frontmatter) rather than expecting a `#` line.
+- **Level-1 heading** → emitted as `#` (not `##`). Heading nesting is shifted up by one. `extract-sow` should treat `#` as §1-level, not as document title.
+- **Empty table header row** → Word tables without a styled header produce a leading empty row `|  |  |  |` before the real first row. Detect + strip when parsing.
+- **Inline text attributes** (bold, highlight, colors) — preserved as markdown bold/plain; styling beyond bold/italic is lost.
+
+**PPTX**
+- **Slide numbers** emitted as `<!-- Slide number: N -->` HTML comments — useful for LLM context; preserve when quoting excerpts.
+- **Bullet lists** flatten to consecutive paragraphs (bullet structure lost). If the deck relies on nested bullets to convey scope/non-scope, `extract-sow` must not assume bullet-list semantics.
+- **Titles** → `#` per slide (fine).
+
+**XLSX**
+- **Sheet name** → `## <name>` heading (good).
+- **Each sheet** becomes its own section in order — single markdown file with `##` per sheet. If the workbook has 10+ sheets, output can be long; consider `-s <sheet>` flag per sheet if supported (or filter by `awk` before feeding to `extract-sow`).
+
+**Cross-format**
+- **Non-ASCII punctuation** (`≥`, `<`, `→`, ฯลฯ) preserved correctly — no escaping needed.
+- **YouTube transcripts** fail with `no element found` on videos with disabled captions/region restrictions — not a markitdown bug, a YouTube API limit. Fall back to manual transcript.
+
 ## When extract-sow uses markitdown
 
 The skill now detects source file type:
