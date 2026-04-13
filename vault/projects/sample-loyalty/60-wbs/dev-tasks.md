@@ -5,9 +5,15 @@ source: 20-srs/srs.md
 generated: 2026-04-13
 iteration: 2 weeks
 capacity: 2 BE, 2 MO, 1 FE, 1 QA, 0.5 DevOps, 1 TL, 1 BA, 0.5 PM — 6 months (2026-05-01 → 2026-10-31)
+status: provisional
+srs-version-at-generation: 0.1 (not signed off)
 ---
 
 # Development task backlog — sample-loyalty
+
+> **⚠ PROVISIONAL** — generated against unsigned SRS v0.1 as a fixture example.
+> **Re-run `plan-tasks` after client sign-off** to produce the canonical `dev-tasks.md`.
+> See SRS QA review (99-qa/srs-review-2026-04-13.md) — 5 blocking client questions still open; several tasks here will shift once answered.
 
 ## Summary
 - **FRs decomposed:** 12 (FR-001..FR-012)

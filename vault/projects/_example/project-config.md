@@ -14,6 +14,15 @@ Skills read this file to adapt output per project. Copy this folder as the start
   - `strict` → follow IEEE 830 / BABOK / PMBOK sections rigorously, load standards notes
   - `pragmatic` → use template skeleton, skip sections that don't apply
 
+## Sign-off tracking
+> Used by `plan-tasks` to decide between post-signoff vs provisional output.
+
+| Doc | Version | Signed off? | Date | By whom |
+|---|---|---|---|---|
+| SOW | — | — | — | — |
+| SRS | — | — | — | — |
+| SDS | — | — | — | — |
+
 ## Deliverables (check what applies)
 - [ ] SOW extract
 - [ ] BRD

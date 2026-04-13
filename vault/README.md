@@ -1,7 +1,7 @@
 # AI Workflow Vault
 
 Obsidian vault + Claude Code skills for document-partner workflow:
-**extract SOW → summarize → diagram → draft docs → Q&A / next plan.**
+**extract SOW → draft docs → diagram → Q&A → export → [client sign-off] → plan dev tasks.**
 
 ## Layout
 
@@ -14,16 +14,19 @@ vault/
 └── projects/     Per-project folders; each has project-config.md
 ```
 
-## Core skills (phase 1)
+## Core skills — canonical workflow order
 
-| Skill | Triggered by |
-|---|---|
-| `extract-sow` | "extract / parse this SOW or requirement doc" |
-| `draft-doc` | "draft SRS / BRD / SDS / test-plan / WBS for <project>" |
-| `make-diagram` | "diagram this flow / sequence / ERD" |
-| `qa-review` | "review / ask questions / next plan for <doc>" |
-| `plan-tasks` | "break down tasks / dev plan / sprint plan / แตก task" |
-| `export-doc` | "export / convert to docx / pdf for client delivery" |
+| # | Skill | When to run | Triggered by |
+|---|---|---|---|
+| 1 | `extract-sow` | after receiving SOW | "extract / parse this SOW or requirement doc" |
+| 2 | `draft-doc` | after SOW extracted | "draft SRS / BRD / SDS / test-plan / WBS for <project>" |
+| 3 | `make-diagram` | during/after drafting (for any doc needing a visual) | "diagram this flow / sequence / ERD" |
+| 4 | `qa-review` | after a draft is finished | "review / ask questions / next plan for <doc>" |
+| 5 | `export-doc` | before sending a doc to the client | "export / convert to docx / pdf for client delivery" |
+| — | **⏸ CLIENT SIGN-OFF GATE** | **wait for client to confirm SRS / SDS** | — |
+| 6 | `plan-tasks` | **only after sign-off** (or "provisional" for internal sizing) | "break down tasks / dev plan / sprint plan / แตก task" |
+
+**Why `plan-tasks` sits after the sign-off gate:** it produces an internal dev plan (estimates, dependencies, sprint allocation) derived from the SRS. If the SRS changes after client review, the dev plan has to be regenerated — running it too early wastes planning effort. Use `plan-tasks --provisional` terminology only for early SOW-sizing needs, and expect to re-run after sign-off.
 
 One `draft-doc` skill handles all document types — it reads the project's
 `project-config.md`, picks the matching template from `templates/`, optionally
@@ -39,7 +42,14 @@ additionally needs XeLaTeX and a Thai font (TH Sarabun New recommended).
 1. `cp -r projects/_example projects/<name>`
 2. Edit `projects/<name>/project-config.md` — set language, standard level, diagram tools, deliverables
 3. Drop the SOW into `projects/<name>/00-sow/`
-4. Invoke skills conversationally, e.g. "extract the SOW in acme-crm", then "draft SRS for acme-crm"
+4. Invoke skills conversationally in order:
+   - "extract the SOW in `<name>`"
+   - "draft SRS for `<name>`"
+   - "diagram the points accrual flow for `<name>`" (as needed)
+   - "QA review the SRS for `<name>`" → get client questions
+   - "export SRS for `<name>` as docx" → send to client
+5. **Wait for client sign-off** on SRS (and SDS, if applicable)
+6. Only after sign-off: "plan dev tasks for `<name>`" → internal backlog + sprints
 
 ## Language
 

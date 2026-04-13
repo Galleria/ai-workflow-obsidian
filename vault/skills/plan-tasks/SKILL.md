@@ -9,6 +9,19 @@ Bridges the gap between **WBS (PM-level work packages)** and **Jira/GitLab backl
 
 Input: SRS (+ optional SDS). Output: a markdown task backlog that the tech lead can drop into Jira / GitLab Issues / Linear, plus a dependency graph and Gantt.
 
+## ⚠ Precondition — run only after client sign-off on the SRS
+
+`plan-tasks` consumes the SRS as **frozen input**. If the SRS changes, the dev plan has to be regenerated. Running too early wastes effort.
+
+**Before running, verify one of:**
+1. SRS is signed off (client confirmed via email / meeting — look for `signed-off: true` or a sign-off note in `project-config.md`), OR
+2. The user explicitly says "provisional" / "for internal sizing" / "pre-signoff estimate" — in that case, **label the output file** `dev-tasks-provisional-<date>.md` and **warn in the report** that it must be re-run after sign-off.
+
+If neither is true, **ask the user** before proceeding:
+> "SRS sign-off status unclear. Is this dev plan for (a) post-signoff implementation, or (b) a provisional internal estimate? The output will be labeled accordingly."
+
+The typical order for a new project is: `extract-sow` → `draft-doc` → `make-diagram` → `qa-review` → `export-doc` → **[client sign-off]** → `plan-tasks`.
+
 ## Inputs
 - **Project name** — `projects/<name>/`
 - **Source doc** — defaults to `20-srs/srs.md`; also reads `30-sds/sds.md` if present
@@ -34,8 +47,10 @@ Input: SRS (+ optional SDS). Output: a markdown task backlog that the tech lead 
    - Gantt sequenced against team capacity (Mermaid)
    - Sprint/iteration plan if iteration length given
    - Risk callouts for under-specified FRs
-9. **Save** to `projects/<name>/60-wbs/dev-tasks.md` (co-located with high-level WBS)
-10. **Report** summary
+9. **Save** to `projects/<name>/60-wbs/`:
+   - Post-signoff: `dev-tasks.md`
+   - Provisional: `dev-tasks-provisional-<YYYYMMDD>.md` + header banner "⚠ PROVISIONAL — based on unsigned SRS v<ver>, re-run after sign-off"
+10. **Report** summary (note provisional status if applicable)
 
 ## Standard task decomposition pattern (per FR)
 
