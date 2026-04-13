@@ -1,0 +1,23 @@
+# Obsidian: keep only core-plugins.json (list of enabled plugins), ignore per-machine state + plugin binaries
+**/.obsidian/*
+!**/.obsidian/core-plugins.json
+!**/.obsidian/community-plugins.json
+
+# Export build artifacts (regenerable — don't version)
+**/_export-build/
+
+# Deliverable exports — optional to version; uncomment next line to keep DOCX/PDF out of git
+# **/_export/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Node (if any tooling lands here — mermaid-cli etc. are global)
+node_modules/
+
+# Temp
+*.tmp
+*.log
