@@ -22,7 +22,8 @@ vault/
 | 0a | `research-outline` | optional — before SOW extract (industry/compliance/pattern research) or for standalone second-brain use | "/research <topic>", "research X for this project", "วิจัยเรื่อง X" |
 | 0b | `research-deep` | after `research-outline`, expands the outline into per-item atomic notes | "/research-deep", "expand outline", "ลงลึก research" |
 | 1 | `extract-sow` | after receiving SOW | "extract / parse this SOW or requirement doc" |
-| 2 | `draft-doc` | after SOW extracted | "draft SRS / BRD / SDS / test-plan / WBS for <project>" |
+| 1a | `pre-draft-review` | after extract, **before** drafting — surfaces gaps that must be resolved for a reliable draft | "pre-draft review / ตรวจก่อน draft / what's missing before drafting" |
+| 2 | `draft-doc` | after SOW extracted (and pre-draft gaps resolved) | "draft SRS / BRD / SDS / test-plan / WBS for <project>" |
 | 3 | `make-diagram` | during/after drafting (for any doc needing a visual) | "diagram this flow / sequence / ERD" |
 | 4 | `qa-review` | after a draft is finished | "review / ask questions / next plan for <doc>" |
 | 5 | `export-doc` | before sending a doc to the client | "export / convert to docx / pdf for client delivery" |
@@ -31,6 +32,8 @@ vault/
 | 6 | `plan-tasks` | **only after sign-off** (or "provisional" for internal sizing) | "break down tasks / dev plan / sprint plan / แตก task" |
 
 `update-doc` is the revision loop — runs as many times as needed between initial draft and sign-off (or post-signoff for CRs). Typical cycle: `qa-review` → client meeting → MoM → `update-doc` → repeat until accepted.
+
+`pre-draft-review` runs a similar gap analysis **before** drafting starts — separating pre-draft questions (info PM needs to draft reliably) from post-draft questions (info client needs to confirm in the draft). Optional research-mode can invoke `research-outline`/`research-deep` to back §5 Suggested additions with cited sources.
 
 `research-outline` + `research-deep` are **independent** of the document workflow — they can be used standalone (output lands in `knowledge/<topic>/`) for personal knowledge-base / second-brain needs, or project-scoped (`projects/<name>/10-research/<topic>/`) to inform SOW extraction / SRS NFR drafting.
 
