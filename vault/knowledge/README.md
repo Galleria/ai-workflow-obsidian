@@ -18,9 +18,9 @@ Entry point for topic research not tied to a specific project. **Read this file 
 
 ## Topics
 
-| Topic | Slug | Summary | Last researched | Items |
+| Topic | Slug | Summary | Last updated | Items |
 |---|---|---|---|---|
-| Living knowledge base (PKM / second brain) | [[living-knowledge-base/index\|living-knowledge-base]] | 4 คลื่นของแนวคิด (Zettelkasten → Evergreen → PARA → AI-augmented); pattern ร่วม: atomic, own words, links>folders | 2026-04-13 | 5 |
+| Living knowledge base (PKM / second brain) | [[living-knowledge-base/index\|living-knowledge-base]] | 4 คลื่น (Zettelkasten → Evergreen → PARA → AI-augmented) + POC implementation notes (confirmed/deferred/rejected patterns) | 2026-04-13 | 5 |
 
 ## How to add a new topic
 

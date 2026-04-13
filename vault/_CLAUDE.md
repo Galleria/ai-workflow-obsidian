@@ -14,7 +14,13 @@ vault/
 ├── templates/          doc skeletons — read only when draft-doc is active
 ├── standards/          reference notes (IEEE 830, etc) — load on demand
 ├── patterns/           reusable chunks — load on demand
-├── knowledge/          topic research (second brain) — START with index.md per topic
+├── knowledge/          topic research (second brain) — START with README.md then index.md per topic
+│   ├── README.md           topic catalog (ALWAYS read first before loading a topic)
+│   ├── <topic>/
+│   │   ├── outline.md      from research-outline
+│   │   ├── index.md        TL;DR + cross-cutting synthesis (READ FIRST per topic)
+│   │   ├── items/          atomic notes (load on demand only)
+│   │   └── _raw/           immutable source captures (web fetches, PDFs) — never rewrite
 └── projects/           per-project folders — read project-config.md first
 ```
 
@@ -54,6 +60,7 @@ vault/
 |---|---|
 | `research-outline` | Stage 1: outline items + angles on a topic |
 | `research-deep` | Stage 2: expand outline into per-item atomic notes (parallel web search) |
+| `update-knowledge` | Ingest new source (URL/file/text) into existing knowledge topic — append, merge, or refresh modes; preserves provenance |
 | `extract-sow` | Parse SOW/requirement doc → normalized `extracted.md` |
 | `draft-doc` | Fill a template (SRS/BRD/SDS/…) from extracted requirements |
 | `make-diagram` | Generate Mermaid/PlantUML/drawio diagram |

@@ -4,6 +4,7 @@ topic: Living knowledge base
 parent: "[[outline]]"
 item-count: 5
 generated: 2026-04-13
+last-updated: 2026-04-13
 visibility: public
 tags:
   - research
@@ -46,13 +47,35 @@ tags:
 - **Automation level**: manual (classic) vs. AI-augmented (2025+) — trade-off trust vs. leverage
 - **Publish or not**: Matuschak publish public garden, Forte แนะนำ private-first
 
-## Relevance ต่อ POC ของเรา
+## Relevance ต่อ POC ของเรา (updated 2026-04-13)
 
-POC นี้เป็น **doc-workflow partner** เป็นหลัก — จึงไม่ต้อง implement living-knowledge-base เต็มรูป. แต่ pattern ที่เอาไปใช้ได้เลย:
-- ✅ `knowledge/` folder (เพิ่มใน vault แล้ว) = evergreen zone สำหรับ topic ข้ามโปรเจกต์
-- ✅ Wikilinks + frontmatter tags (ผ่าน [[obsidian-markdown]]) = link density
-- ⚠️ ยังไม่มี `_CLAUDE.md` / `CRITICAL_FACTS.md` vault-root — ทำได้ภายหลังถ้าอยากขยับฝั่ง second-brain (ดู [[items/obsidian-claude-patterns]])
-- ❌ Scheduled agents — ยังไม่ทำ (ผู้ใช้ขอค่อยๆไปก่อน)
+POC นี้เป็น **doc-workflow partner** เป็นหลัก + second-brain layer เสริม. สถานะ pattern ที่เอามาใช้:
+
+**✅ Implemented:**
+- `knowledge/` folder = evergreen zone สำหรับ topic ข้ามโปรเจกต์
+- Wikilinks + frontmatter tags (ผ่าน [[obsidian-markdown]]) = link density
+- `_CLAUDE.md` vault-root operating manual + read-order rules (token discipline)
+- `knowledge/README.md` = catalog cheap entry point
+- `> [!opinion]` callout convention แยก AI judgment จาก fact
+- `_raw/` folder per topic = immutable source trail
+- Markitdown multi-format ingestion (DOCX/PPTX/XLSX/HTML/EPub → .md)
+- `update-knowledge` skill (append/merge/refresh modes; preserves provenance)
+- Visibility scheme (`private|internal|public`)
+
+**⚠️ Deferred:**
+- `CRITICAL_FACTS.md` always-loaded pin — ยังไม่มี ground-truth facts ระดับนี้
+- Scheduled agents (morning/nightly) — manual ops ก่อน
+
+**❌ Rejected:**
+- Rename `knowledge/` → `wiki/` — rename churn ไม่คุ้ม
+- Auto-ingest ที่ rewrite หลายหน้าอัตโนมัติ — trust boundary ใหญ่เกินไป, ใช้ explicit `update-knowledge` แทน
+
+รายละเอียดเต็ม + lessons learned ดู [[items/obsidian-claude-patterns#Update 2026-04-13]]
+
+## Changelog
+
+- **2026-04-13** (append, via update-knowledge) — เพิ่ม POC implementation notes ใน [[items/obsidian-claude-patterns]]: confirmed winners / deferred / rejected patterns + lessons learned. Relevance section ปรับเป็น concrete status. AI consolidated take ปรับข้อ 3 ให้สะท้อนว่า guardrails ข้อ 2-3 (weekly diff review, critical facts) ยัง defer
+- **2026-04-13** (initial) — 5 items, outline + index + consolidated opinion. Source: research-outline + research-deep demo
 
 ## Open threads
 - ดูว่า `knowledge/` vs `projects/*/10-research/` จะ cross-pollinate ยังไง — เช่น pattern ที่เจอจาก project A ย้ายเป็น evergreen note ใน `knowledge/` ได้ไหม
@@ -68,7 +91,7 @@ POC นี้เป็น **doc-workflow partner** เป็นหลัก — 
 > [!opinion] Consolidated judgment (not fact — flagged for reader filtering)
 > 1. **Methodology ไม่ใช่ bottleneck** — คนล้มเหลวเพราะ anti-patterns (ดู [[items/anti-patterns]]) มากกว่าเลือก method ผิด. เริ่มเลยด้วย evergreen-style แล้ว iterate — อย่ารออ่าน book stack ก่อน
 > 2. **Hybrid ชนะ pure** — PARA ที่ capture/project layer + evergreen ที่ resources/knowledge layer. POC นี้โครงสร้างได้แล้ว (projects/ = P, knowledge/ = R)
-> 3. **AI-augmented layer คุ้มลงทุน** แต่ต้องมี guardrails สามข้อ: git history, weekly diff review, always-loaded critical facts. ปัจจุบัน POC มีข้อ 1 เท่านั้น — ถ้าจะขยับไปแนวนี้เต็มตัว ต้องเติมข้อ 2-3 ก่อน (ไม่ใช่หลัง)
+> 3. **AI-augmented layer คุ้มลงทุน** แต่ต้องมี guardrails สามข้อ: git history, weekly diff review, always-loaded critical facts. ปัจจุบัน POC มี (1) + (2)-lite ผ่าน `update-knowledge` ที่ preserve provenance + supersede callouts; ข้อ (3) `CRITICAL_FACTS.md` ยัง defer เพราะ POC ยังไม่มี ground-truth ระดับที่คุ้ม pin. จะ re-evaluate เมื่อทำโปรเจกต์จริง 1-2 ตัวและเห็น repeated facts
 > 4. **Thai context**: Zettelkasten / Evergreen materials ส่วนใหญ่เป็นอังกฤษ — การเขียน note ด้วยภาษาไทย + title อังกฤษ (ผสม) เป็น compromise ใช้การได้; workflow ของ POC ใช้ pattern นี้อยู่แล้ว
 
 ## Sources (aggregate จากทุก items)
