@@ -3,6 +3,11 @@
 !**/.obsidian/core-plugins.json
 !**/.obsidian/community-plugins.json
 
+# Claude Code: per-machine local settings
+.claude/settings.local.json
+.claude/sessions/
+.claude/cache/
+
 # Export build artifacts (regenerable — don't version)
 **/_export-build/
 
